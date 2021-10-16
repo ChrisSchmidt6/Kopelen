@@ -1,0 +1,150 @@
+.container {
+  width: 100%;
+  max-height: 600px;
+  background: #434343;
+  position: relative;
+  border-radius: 10px;
+  padding-top: 10px;
+  margin: 10px auto 0px auto;
+  clear: both;
+  color: #aaa;
+  overflow: hidden;
+}
+
+.container h4,
+.author,
+.containerBody {
+  max-width: 100%;
+  margin: 5px 25px;
+  display: block;
+  text-align: left;
+}
+
+.container h4,
+.author {
+  max-height: 1.2em;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.container h4 {
+  font-size: 14pt;
+  clear: left;
+}
+
+.author {
+  font-size: 10pt;
+  margin-left: 20px;
+  float: left;
+}
+
+.interact {
+  font-size: 25px;
+  margin: 5px 15px 5px 0px;
+  float: right;
+  color: white;
+}
+
+.interact svg {
+  cursor: pointer;
+  overflow: hidden;
+  cursor: pointer;
+  margin-left: 2px;
+}
+
+.interact svg,
+.deleteShortcut svg {
+  cursor: pointer;
+}
+
+.interact svg:last-of-type {
+  margin-left: 10px;
+}
+
+.interact svg:last-of-type:hover,
+.deleteShortcut svg:hover {
+  color: rgba(255, 255, 255, 0.25);
+}
+
+.blueHover:hover {
+  color: #1f8cd4;
+}
+
+.deleteShortcut {
+  float: right;
+  margin-right: 15px;
+  font-size: 25px;
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.containerBody {
+  overflow: hidden;
+  max-height: 460px;
+  min-height: 25px;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 15px;
+}
+
+.containerBody p {
+  font-size: 12pt;
+  text-rendering: none;
+  overflow-wrap: break-word;
+  padding: 0 15px;
+}
+
+.containerBody img {
+  display: block;
+  margin: auto;
+  max-height: 460px;
+  max-width: 100%;
+}
+
+.video {
+  background: #000;
+}
+
+.video iframe {
+  display: block;
+  margin: auto;
+  width: 720px; /* width of wrapper is 1050 px, diff = 0.685714286 */
+  height: 405px;
+}
+
+@media screen and (max-width: 1400px) {
+  .video {
+    background: transparent;
+  }
+
+  /* width of wrapper is 650 */
+  .video iframe {
+    width: 648px;
+    height: 365px;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .video {
+    background: transparent;
+  }
+
+  /* width of wrapper is 450 */
+  .video iframe {
+    width: 448px;
+    height: 252px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .container {
+    width: 100%;
+    border-radius: 0px;
+    padding: 0 5px;
+    padding-top: 10px;
+  }
+  .containerBody {
+    border-radius: 0px;
+    width: 100%;
+    margin: 0;
+  }
+}

@@ -37,7 +37,7 @@ const ToggleButton = (props) => {
     if (!option.props.disabled) {
       return cloneElement(option, {
         onClick: () => {
-          if(option.props.onClick) option.props.onClick();
+          if (option.props.onClick) option.props.onClick();
           dropdownHandler();
         },
         key,

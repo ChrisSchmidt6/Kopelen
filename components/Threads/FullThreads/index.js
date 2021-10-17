@@ -1,6 +1,6 @@
 //
 
-const Threads = () => {
+const FullThreads = () => {
   return (
     <>
       {/**/}
@@ -9,4 +9,4 @@ const Threads = () => {
   );
 };
 
-export default Threads;
+export default FullThreads;

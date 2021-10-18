@@ -5,6 +5,8 @@ import {
   MdShare,
 } from "react-icons/md";
 
+import CommentSection from "./CommentSection";
+
 import classes from "./FullThreads.module.css";
 
 const FullThreads = (props) => {
@@ -62,6 +64,8 @@ const FullThreads = (props) => {
           </div>
         </div>
       </div>
+
+      <CommentSection className={classes.comments} />
     </>
   );
 };

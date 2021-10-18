@@ -1,0 +1,17 @@
+.comment {
+  margin: 10px 0;
+  border-left: 1px solid black;
+  padding: 5px 10px;
+  width: fit-content;
+}
+
+.author {
+  font-size: 10pt;
+  font-weight: bold;
+  display: block;
+  color: #c7c7c7;
+}
+
+.content {
+  display: block;
+}

@@ -1,0 +1,33 @@
+.addComment {
+  display: block;
+  margin: 0 auto;
+  width: fit-content;
+  overflow: auto;
+}
+
+.addComment label {
+  margin: 5px;
+  display: block;
+}
+
+.addComment textarea {
+  background-color: #c7c7c7;
+  resize: vertical;
+  border: none;
+  width: 500px;
+  min-height: 50px;
+  display: block;
+  clear: right;
+  padding: 5px;
+}
+
+.addComment textarea:focus {
+  min-height: 100px;
+  outline: none;
+}
+
+.addComment input {
+  float: right;
+  display: block;
+  margin-top: 5px;
+}

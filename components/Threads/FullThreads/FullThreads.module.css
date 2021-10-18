@@ -1,6 +1,6 @@
-.thread {
+.thread,
+.comments {
   padding: 10px 20px;
-  clear: both;
   width: 100%;
   color: #aaa;
   overflow: hidden;
@@ -122,4 +122,8 @@
   float: right;
   font-size: 25px;
   color: rgba(255, 255, 255, 0.3);
+}
+
+.comments {
+  margin-top: 10px;
 }

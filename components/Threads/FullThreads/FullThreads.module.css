@@ -65,7 +65,6 @@
 .like {
   font-size: 25px;
   float: right;
-  color: white;
 }
 
 .interact {
@@ -114,8 +113,7 @@
   color: rgba(255, 255, 255, 0.25);
 }
 
-.blueLike,
-.like svg:hover {
+.like:hover svg {
   color: #1f8cd4;
 }
 

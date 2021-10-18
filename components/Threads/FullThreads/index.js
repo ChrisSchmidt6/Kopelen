@@ -60,7 +60,7 @@ const FullThreads = (props) => {
 
         <div className={classes.like}>
           <div className={classes.iconButton}>
-            <MdEmojiEmotions className={classes.blueHover} /> Like
+            <MdEmojiEmotions /> Like
           </div>
         </div>
       </div>

@@ -1,3 +1,4 @@
+import Link from "next/link";
 import {
   MdComment,
   MdDeleteForever,
@@ -38,10 +39,14 @@ const ThreadPreviews = (props) => {
         <div className={classes.author}>
           Thread by: <u>{props.author}</u>
         </div>
+
         <div className={classes.deleteShortcut}>
           {isModerator ? <MdDeleteForever /> : <MdOutlinedFlag />}
         </div>
-        <h4>{props.title}</h4>
+
+        <Link href={`/thread/${props.id}`}>
+          <h4>{props.title}</h4>
+        </Link>
 
         <div className={classes.containerBody}>
           {props.type === "text" && <p>{props.data}</p>}
@@ -51,7 +56,9 @@ const ThreadPreviews = (props) => {
 
         <div className={classes.interact}>
           <MdEmojiEmotions className={classes.blueHover} />
-          <MdComment />
+          <Link href={`/thread/${props.id}`}>
+            <MdComment />
+          </Link>
         </div>
       </div>
     </>

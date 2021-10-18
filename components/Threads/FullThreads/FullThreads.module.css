@@ -1,0 +1,124 @@
+.thread {
+  padding: 10px 20px;
+  clear: both;
+  width: 100%;
+  color: #aaa;
+  overflow: hidden;
+  border-radius: 15px;
+  background: #434343;
+}
+
+.author {
+  font-size: 10pt;
+  float: left;
+}
+
+.thread h2 {
+  color: white;
+  margin: 10px 0;
+}
+
+.thread h2,
+.containerBody {
+  clear: both;
+}
+
+.containerBody {
+  max-width: 100%;
+  border-bottom: 1px solid black;
+  display: block;
+}
+
+.containerBody p {
+  font-size: 12pt;
+  text-rendering: none;
+  overflow-wrap: break-word;
+  margin: 0;
+  padding: 0 0 16px 0;
+}
+
+.containerBody img {
+  display: block;
+  margin: auto;
+  max-height: 800px;
+  max-width: 100%;
+}
+
+.video {
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  padding-top: 56.25%;
+}
+
+.video iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.like {
+  font-size: 25px;
+  float: right;
+  color: white;
+}
+
+.interact {
+  float: left;
+}
+
+.iconButton {
+  text-align: center;
+  font-size: 15pt;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  border-radius: 5px;
+  padding: 5px 10px 5px 5px;
+  color: rgba(255, 255, 255, 0.3);
+  user-select: none;
+}
+
+.iconButton:hover {
+  background-color: rgba(0, 0, 0, 0.2);
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.like {
+  float: right;
+}
+
+.interact svg,
+.like svg {
+  cursor: pointer;
+  overflow: hidden;
+  cursor: pointer;
+  font-size: 25px;
+  margin-right: 5px;
+}
+
+.interact svg,
+.like svg,
+.deleteShortcut svg {
+  cursor: pointer;
+}
+
+.deleteShortcut svg:hover {
+  color: rgba(255, 255, 255, 0.25);
+}
+
+.blueLike,
+.like svg:hover {
+  color: #1f8cd4;
+}
+
+.deleteShortcut {
+  float: right;
+  font-size: 25px;
+  color: rgba(255, 255, 255, 0.3);
+}

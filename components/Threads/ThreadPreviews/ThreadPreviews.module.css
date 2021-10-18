@@ -17,7 +17,6 @@
   max-width: 100%;
   margin: 5px 25px;
   display: block;
-  text-align: left;
 }
 
 .container h4,
@@ -31,6 +30,11 @@
 .container h4 {
   font-size: 14pt;
   clear: left;
+  cursor: pointer;
+}
+
+.container h4:hover {
+  color: white;
 }
 
 .author {

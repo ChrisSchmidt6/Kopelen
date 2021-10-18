@@ -24,9 +24,12 @@ const CommentSection = (props) => {
   return (
     <div className={props.className}>
       <form className={classes.addComment}>
-        <label htmlFor="comment">Leave a comment</label>
-        <textarea name="comment" />
-        <input type="submit" value="Submit" disabled />
+        <label htmlFor="comment" />
+        <textarea name="comment" placeholder="Leave a comment..." />
+        <div className={classes.interact}>
+          <input className={classes.cancel} type="reset" value="Cancel" />
+          <input className={classes.submit} type="submit" value="Submit" disabled />
+        </div>
       </form>
       {DUMMY_COMMENTS.map((comment) => (
         <Comment key={comment.id} {...comment} />

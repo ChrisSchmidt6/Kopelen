@@ -4,9 +4,8 @@
   background: #434343;
   position: relative;
   border-radius: 10px;
-  padding-top: 10px;
+  padding: 10px 35px 0 35px;
   margin: 10px auto 0px auto;
-  clear: both;
   color: #aaa;
   overflow: hidden;
 }
@@ -15,7 +14,7 @@
 .author,
 .containerBody {
   max-width: 100%;
-  margin: 5px 25px;
+  margin: 0;
   display: block;
 }
 
@@ -28,42 +27,51 @@
 }
 
 .container h4 {
+  margin: 5px 0;
   font-size: 14pt;
-  clear: left;
   cursor: pointer;
+  clear: both;
 }
 
 .container h4:hover {
-  color: white;
+  color: #fff;
 }
 
 .author {
+  margin-top: 5px;
   font-size: 10pt;
-  margin-left: 20px;
   float: left;
 }
 
+.author::after {
+  clear: both;
+}
+
 .interact {
+  margin: 5px 0;
+  color: #fff;
+}
+
+.deleteShortcut {
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.interact,
+.deleteShortcut {
   font-size: 25px;
-  margin: 5px 15px 5px 0px;
   float: right;
-  color: white;
 }
 
 .interact svg {
   cursor: pointer;
   overflow: hidden;
   cursor: pointer;
-  margin-left: 2px;
+  margin-left: 5px;
 }
 
 .interact svg,
 .deleteShortcut svg {
   cursor: pointer;
-}
-
-.interact svg:last-of-type {
-  margin-left: 10px;
 }
 
 .interact svg:last-of-type:hover,
@@ -73,13 +81,6 @@
 
 .blueHover:hover {
   color: #1f8cd4;
-}
-
-.deleteShortcut {
-  float: right;
-  margin-right: 15px;
-  font-size: 25px;
-  color: rgba(255, 255, 255, 0.3);
 }
 
 .containerBody {

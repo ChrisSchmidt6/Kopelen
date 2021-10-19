@@ -13,7 +13,7 @@ const DUMMY_DATA = [
     type: "image",
     author: "cupe",
     title: "Image Thread Preview Example",
-    data: "https://cdn10.bostonmagazine.com/wp-content/uploads/sites/2/2020/03/boston-gyms-equipment-social.jpg",
+    data: "https://www.gannett-cdn.com/presto/2020/04/16/USAT/5b7ef814-a04d-44c8-86ef-1d47c798a1f1-Golds_gym_CharlesTown.jpg",
   },
   {
     id: "t10",

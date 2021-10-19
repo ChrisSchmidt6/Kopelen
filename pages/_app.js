@@ -12,7 +12,7 @@ function Kopelen({ Component, pageProps }) {
         <meta name="description" content="Kopelen does things" />
         <link rel="icon" href="/favicon.ico" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="true" />
         <link
           href="https://fonts.googleapis.com/css2?family=Metrophobic&display=swap"
           rel="stylesheet"

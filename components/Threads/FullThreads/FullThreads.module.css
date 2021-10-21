@@ -126,3 +126,18 @@
 .comments {
   margin-top: 10px;
 }
+
+@media screen and (max-width: 600px) {
+  .thread, .comments {
+    width: 100%;
+    border-radius: 0px;
+    padding: 0 5px;
+    padding-top: 10px;
+  }
+
+  .containerBody {
+    border-radius: 0px;
+    width: 100%;
+    margin: 0;
+  }
+}

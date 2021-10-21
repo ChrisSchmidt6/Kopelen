@@ -1,5 +1,5 @@
-import { MdAccountCircle, MdSettings } from "react-icons/md";
 import { useRouter } from "next/router";
+import { MdAccountCircle, MdSettings } from "react-icons/md";
 
 import ToggleButton from "../../ui/ToggleButton";
 

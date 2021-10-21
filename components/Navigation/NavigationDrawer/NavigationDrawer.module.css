@@ -12,13 +12,26 @@
 }
 
 .navigation {
-  padding: 10px;
+  padding: 10px 0;
   margin: 0;
   display: block;
   background: #505050;
   width: 80%;
   height: 100%;
   list-style-type: none;
+}
+
+.navigation li {
+  text-align: center;
+  font-size: 16pt;
+  padding: 5px;
+  cursor: pointer;
+}
+
+.navigation li.divider {
+  border-bottom: 1px solid #404040;
+  margin: 10px 0;
+  width: 100%;
 }
 
 @media screen and (max-width: 600px) {

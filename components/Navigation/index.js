@@ -1,5 +1,6 @@
+import { useState } from "react";
+import { useRouter } from "next/router";
 import { MdMenu } from "react-icons/md";
-import Link from "next/link";
 
 import NavigationButtons from "./NavigationButtons";
 import NavigationDrawer from "./NavigationDrawer";
@@ -7,17 +8,39 @@ import NavigationDrawer from "./NavigationDrawer";
 import classes from "./Navigation.module.css";
 
 const Navigation = () => {
+  const [isMenuOpen, setisMenuOpen] = useState(false);
+  const router = useRouter();
+
+  const handleRedirect = (url) => {
+    router.push(url);
+    if (isMenuOpen) setisMenuOpen(false);
+  };
+
+  const handleMenu = () => {
+    setisMenuOpen(!isMenuOpen);
+  };
+
+  const onCloseMenu = () => {
+    if (isMenuOpen) setisMenuOpen(false);
+  };
+
+  const updatedMenuButtonClasses = `${classes.menuButton}${
+    isMenuOpen ? ` ${classes.active}` : ""
+  }`;
+
   return (
     <div className={classes.navBar}>
-      <div className={classes.menuButton} tabIndex="-1">
+      <div
+        className={updatedMenuButtonClasses}
+        onClick={handleMenu}
+        tabIndex="-1"
+      >
         <MdMenu />
       </div>
 
-      <NavigationDrawer />
+      <NavigationDrawer open={isMenuOpen} closeMenu={onCloseMenu} />
 
-      <Link href="/">
-        <h1>Kopelen</h1>
-      </Link>
+      <h1 onClick={() => handleRedirect("/")}>Kopelen</h1>
 
       <NavigationButtons />
     </div>

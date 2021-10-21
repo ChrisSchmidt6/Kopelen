@@ -17,7 +17,7 @@
   display: block;
   background: #505050;
   width: 80%;
-  height: 100%;
+  height: calc(100vh - 56px);
   list-style-type: none;
 }
 

@@ -1,18 +1,20 @@
 import { useRouter } from "next/router";
-import { MdAccountCircle, MdSettings } from "react-icons/md";
 
 import classes from "./NavigationDrawer.module.css";
 
-const NavigationDrawer = () => {
+const NavigationDrawer = (props) => {
   const router = useRouter();
 
   const handleRedirect = (url) => {
     router.push(url);
+    props.closeMenu();
   };
+
+  const updatedClasses = `${classes.menu}${props.open ? ` ${classes.active}` : ""}`;
 
   return (
     <>
-      <div className={classes.menu}>
+      <div className={updatedClasses}>
         <ul className={classes.navigation}>
           <li onClick={() => handleRedirect("/login")}>Sign In</li>
           <li disabled>Register</li>

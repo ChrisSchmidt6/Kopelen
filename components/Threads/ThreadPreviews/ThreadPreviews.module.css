@@ -147,9 +147,27 @@
     padding: 0 5px;
     padding-top: 10px;
   }
+
   .containerBody {
     border-radius: 0px;
     width: 100%;
     margin: 0;
+  }
+
+  .video {
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    padding-top: 56.25%;
+  }
+
+  .video iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
   }
 }

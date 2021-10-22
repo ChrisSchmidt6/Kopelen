@@ -21,6 +21,7 @@ const NavigationDrawer = (props) => {
           <li className={classes.divider} />
           <li disabled>Settings</li>
         </ul>
+        <div className={classes.background} onClick={props.closeMenu}></div>
       </div>
     </>
   );

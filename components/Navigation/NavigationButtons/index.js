@@ -18,7 +18,7 @@ const NavigationButtons = () => {
         <ToggleButton rightAlign>
           <MdAccountCircle />
           <li onClick={() => handleRedirect("/login")}>Sign In</li>
-          <li disabled>Register</li>
+          <li onClick={() => handleRedirect("/register")}>Register</li>
         </ToggleButton>
         <ToggleButton rightAlign>
           <MdSettings />

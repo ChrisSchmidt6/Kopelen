@@ -17,7 +17,7 @@ const NavigationDrawer = (props) => {
       <div className={updatedClasses}>
         <ul className={classes.navigation}>
           <li onClick={() => handleRedirect("/login")}>Sign In</li>
-          <li disabled>Register</li>
+          <li onClick={() => handleRedirect("/register")}>Register</li>
           <li className={classes.divider} />
           <li disabled>Settings</li>
         </ul>

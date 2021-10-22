@@ -22,8 +22,6 @@ const NavigationButtons = () => {
         </ToggleButton>
         <ToggleButton rightAlign>
           <MdSettings />
-          <li disabled>Dark Mode</li>
-          <li disabled>Zark Mode 2</li>
           <li disabled>Settings</li>
         </ToggleButton>
       </div>

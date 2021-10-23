@@ -1,0 +1,42 @@
+.inputGroup {
+  margin: auto;
+  width: fit-content;
+  font-size: 15pt;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  padding: 5px;
+  position: relative;
+  height: 50px;
+  cursor: text;
+  user-select: none;
+}
+
+.inputGroup label {
+  position: absolute;
+  left: 6px;
+  top: 10px;
+  font-size: 15pt;
+  transition: top 0.05s, font-size 0.05s;
+  cursor: text;
+}
+
+.inputGroup label.active {
+  top: 5px;
+  font-size: 10pt;
+}
+
+.inputGroup input {
+  display: block;
+  outline: none;
+  width: 300px;
+  background: none;
+  border: none;
+  color: #fff;
+  margin-top: 15px;
+  font-size: 12pt;
+  border-bottom: 1px solid #fff;
+}
+
+.inputGroup input:focus {
+    border-bottom: 1px solid #9b00cc;
+}

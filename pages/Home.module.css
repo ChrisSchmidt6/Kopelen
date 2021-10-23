@@ -1,4 +1,5 @@
-.button {
+.button,
+.createButton {
   border: none;
   border-radius: 25px;
   background: #590075;
@@ -11,8 +12,17 @@
   cursor: pointer;
 }
 
+.createButton {
+  float: right;
+  margin-right: 0;
+}
+
+.createButton svg {
+  font-size: 15px;
+}
+
 @media screen and (max-width: 600px) {
   .buttonWrap {
-    text-align: center;
+    margin: 0 10px;
   }
 }

@@ -1,4 +1,5 @@
 import { useRouter } from "next/router";
+import { MdPostAdd } from "react-icons/md";
 
 import ThreadPreviews from "../components/Threads/ThreadPreviews";
 import ToggleButton from "../components/ui/ToggleButton";
@@ -67,6 +68,9 @@ const Home = () => {
           <li disabled>New</li>
           <li disabled>Trending</li>
         </ToggleButton>
+        <div className={classes.createButton}>
+          <MdPostAdd /> Create
+        </div>
       </div>
       {ThreadsBundle}
     </>

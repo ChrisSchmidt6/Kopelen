@@ -76,11 +76,16 @@
 
 .interact svg:last-of-type:hover,
 .deleteShortcut svg:hover {
-  color: rgba(255, 255, 255, 0.25);
+  color: #9c9c9c;
 }
 
-.blueHover:hover {
+.blueHover:hover,
+.blueHover.active {
   color: #1f8cd4;
+}
+
+.flagged {
+  color: #800000;
 }
 
 .containerBody {

@@ -1,6 +1,8 @@
+import { useState } from "react";
 import {
   MdDeleteForever,
   MdEmojiEmotions,
+  MdFlag,
   MdOutlinedFlag,
   MdShare,
 } from "react-icons/md";
@@ -10,6 +12,9 @@ import CommentSection from "./CommentSection";
 import classes from "./FullThreads.module.css";
 
 const FullThreads = (props) => {
+  const [isLiked, setIsLiked] = useState(false);
+  const [isFlagged, setIsFlagged] = useState(false);
+
   const isModerator = false;
 
   const handleVideo = (link) => {
@@ -34,6 +39,23 @@ const FullThreads = (props) => {
     } else return <div>Error</div>;
   };
 
+  const handleLike = () => {
+    setIsLiked(!isLiked);
+  };
+
+  const handleFlag = () => {
+    setIsFlagged(!isFlagged);
+  };
+
+  const likeClasses = `${classes.iconButton}${
+    isLiked ? ` ${classes.active}` : ""
+  }`;
+  const flagIcon = isFlagged ? (
+    <MdFlag className={classes.flagged} />
+  ) : (
+    <MdOutlinedFlag />
+  );
+
   return (
     <>
       <div className={classes.thread}>
@@ -41,8 +63,8 @@ const FullThreads = (props) => {
           Thread by: <u>{props.author}</u>
         </div>
 
-        <div className={classes.deleteShortcut}>
-          {isModerator ? <MdDeleteForever /> : <MdOutlinedFlag />}
+        <div className={classes.deleteShortcut} onClick={handleFlag}>
+          {isModerator ? <MdDeleteForever /> : flagIcon}
         </div>
 
         <h2>{props.title}</h2>
@@ -59,7 +81,7 @@ const FullThreads = (props) => {
         </div>
 
         <div className={classes.like}>
-          <div className={classes.iconButton}>
+          <div className={likeClasses} onClick={handleLike}>
             <MdEmojiEmotions /> Like
           </div>
         </div>

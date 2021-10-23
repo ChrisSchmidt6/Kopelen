@@ -110,10 +110,12 @@
 }
 
 .deleteShortcut svg:hover {
-  color: rgba(255, 255, 255, 0.25);
+  color: #9c9c9c;
 }
 
-.like:hover svg {
+.like:hover svg,
+.active,
+.active:hover {
   color: #1f8cd4;
 }
 
@@ -123,12 +125,17 @@
   color: rgba(255, 255, 255, 0.3);
 }
 
+.flagged {
+  color: #800000;
+}
+
 .comments {
   margin-top: 10px;
 }
 
 @media screen and (max-width: 600px) {
-  .thread, .comments {
+  .thread,
+  .comments {
     width: 100%;
     border-radius: 0px;
     padding: 0 5px;

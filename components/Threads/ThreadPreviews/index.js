@@ -1,14 +1,19 @@
+import { useState } from "react";
 import Link from "next/link";
 import {
   MdComment,
   MdDeleteForever,
   MdEmojiEmotions,
+  MdFlag,
   MdOutlinedFlag,
 } from "react-icons/md";
 
 import classes from "./ThreadPreviews.module.css";
 
 const ThreadPreviews = (props) => {
+  const [isLiked, setIsLiked] = useState(false);
+  const [isFlagged, setIsFlagged] = useState(false);
+
   const isModerator = false;
 
   const handleVideo = (link) => {
@@ -33,6 +38,22 @@ const ThreadPreviews = (props) => {
     } else return <div>Error</div>;
   };
 
+  const handleLike = () => {
+    setIsLiked(!isLiked);
+  };
+
+  const handleFlag = () => {
+    setIsFlagged(!isFlagged);
+  };
+
+  const likeClasses =
+    classes.blueHover + `${isLiked ? ` ${classes.active}` : ""}`;
+  const flagIcon = isFlagged ? (
+    <MdFlag className={classes.flagged} />
+  ) : (
+    <MdOutlinedFlag />
+  );
+
   return (
     <>
       <div className={classes.container}>
@@ -40,8 +61,8 @@ const ThreadPreviews = (props) => {
           Thread by: <u>{props.author}</u>
         </div>
 
-        <div className={classes.deleteShortcut}>
-          {isModerator ? <MdDeleteForever /> : <MdOutlinedFlag />}
+        <div className={classes.deleteShortcut} onClick={handleFlag}>
+          {isModerator ? <MdDeleteForever /> : flagIcon}
         </div>
 
         <Link href={`/thread/${props.id}`}>
@@ -55,7 +76,7 @@ const ThreadPreviews = (props) => {
         </div>
 
         <div className={classes.interact}>
-          <MdEmojiEmotions className={classes.blueHover} />
+          <MdEmojiEmotions onClick={handleLike} className={likeClasses} />
           <Link href={`/thread/${props.id}`}>
             <MdComment />
           </Link>

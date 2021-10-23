@@ -40,6 +40,15 @@
   cursor: pointer;
 }
 
-.blueHover:hover {
+.action svg:hover {
+  color: #9c9c9c;
+}
+
+.blueHover:hover,
+.blueHover.active {
   color: #1f8cd4;
+}
+
+.flagged {
+  color: #800000;
 }

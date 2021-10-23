@@ -68,7 +68,7 @@ const Home = () => {
           <li disabled>New</li>
           <li disabled>Trending</li>
         </ToggleButton>
-        <div className={classes.createButton}>
+        <div className={classes.createButton} onClick={() => handleRedirect("/create")}>
           <MdPostAdd /> Create
         </div>
       </div>

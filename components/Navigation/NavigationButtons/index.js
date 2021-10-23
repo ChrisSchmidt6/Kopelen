@@ -1,5 +1,5 @@
 import { useRouter } from "next/router";
-import { MdAccountCircle, MdSettings } from "react-icons/md";
+import { MdAccountCircle, MdForum, MdSettings } from "react-icons/md";
 
 import ToggleButton from "../../ui/ToggleButton";
 
@@ -15,6 +15,11 @@ const NavigationButtons = () => {
   return (
     <div className={classes.navIcons}>
       <div className={classes.navIconContainer}>
+        <ToggleButton >
+          <MdForum />
+          <li onClick={() => handleRedirect("/")}>Threads</li>
+          <li onClick={() => handleRedirect("/create")}>Create Thread</li>
+        </ToggleButton>
         <ToggleButton rightAlign>
           <MdAccountCircle />
           <li onClick={() => handleRedirect("/login")}>Sign In</li>

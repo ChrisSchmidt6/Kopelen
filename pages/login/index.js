@@ -1,5 +1,5 @@
 import { Formik, Form } from "formik";
-import { object, ref, string } from "yup";
+import { object, string } from "yup";
 
 import Input from "../../components/ui/Input";
 

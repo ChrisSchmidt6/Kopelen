@@ -42,11 +42,15 @@ const Register = () => {
         <Formik
           initialValues={initialValues}
           validationSchema={validationSchema}
+          validateOnMount
           onSubmit={(values, { setSubmitting }) => {
             setTimeout(() => {
               alert(JSON.stringify(values, null, 2));
               setSubmitting(false);
             }, 400);
+          }}
+          onReset={(values, { validateForm }) => {
+            validateForm(initialValues);
           }}
         >
           {({ errors, isSubmitting, values }) => (

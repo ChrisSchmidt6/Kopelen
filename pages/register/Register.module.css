@@ -1,0 +1,32 @@
+.container {
+  border-radius: 10px;
+  background: #434343;
+  padding: 10px;
+}
+
+.container h1 {
+  text-align: center;
+}
+
+.container form {
+  max-width: 300px;
+  margin: auto;
+  overflow: auto;
+}
+
+.formButtons {
+  float: right;
+}
+
+.formButtons input {
+  border: none;
+  border-radius: 25px;
+  background: #590075;
+  color: white;
+  margin-left: 5px;
+  width: fit-content;
+  font-size: 10pt;
+  padding: 10px;
+  user-select: none;
+  cursor: pointer;
+}

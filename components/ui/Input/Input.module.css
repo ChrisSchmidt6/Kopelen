@@ -4,7 +4,7 @@
 }
 
 .inputGroup {
-  width: fit-content;
+  width: 100%;
   font-size: 15pt;
   padding: 5px 0;
   position: relative;
@@ -26,7 +26,7 @@
 }
 
 .inputGroup input {
-  width: 300px;
+  width: 100%;
   display: block;
   outline: none;
   background: none;

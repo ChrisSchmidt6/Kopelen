@@ -1,0 +1,47 @@
+.container {
+  border-radius: 10px;
+  background: #434343;
+  padding: 10px 0;
+}
+
+.container h1 {
+  text-align: center;
+}
+
+.container form {
+  border-radius: 10px;
+  max-width: 340px;
+  margin: auto;
+  margin-bottom: 20px;
+  overflow: auto;
+  padding: 20px;
+  background: #545454;
+}
+
+.formButtons {
+  margin-top: 5px;
+  float: right;
+}
+
+.formButtons input {
+  border: none;
+  border-radius: 25px;
+  background: #590075;
+  color: white;
+  margin-left: 5px;
+  width: fit-content;
+  font-size: 10pt;
+  padding: 10px;
+  user-select: none;
+  cursor: pointer;
+}
+
+.formButtons input[type="reset"] {
+  background: #545454;
+}
+
+@media screen and (max-width: 600px) {
+  .container {
+    border-radius: 0px;
+  }
+}

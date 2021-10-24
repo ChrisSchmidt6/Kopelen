@@ -1,6 +1,6 @@
 .container {
   border-radius: 10px;
-  margin-bottom: 15px;
+  margin-bottom: 25px;
 }
 
 .inputGroup {
@@ -38,7 +38,7 @@
 }
 
 .inputGroup input:focus {
-  border-bottom: 1px solid #9b00cc;
+  border-bottom: 1px solid #590075;
 }
 
 .inputGroup input.error {
@@ -46,7 +46,9 @@
 }
 
 .container small {
+  font-size: 10pt;
   word-wrap: break-word;
+  float: left;
 }
 
 .container small,

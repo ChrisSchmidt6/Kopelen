@@ -10,6 +10,7 @@ const initialValues = {
   email: "",
   password: "",
   confirmPassword: "",
+  accessKey: "",
 };
 
 // Validating all fields (self explanatory)
@@ -17,7 +18,7 @@ const validationSchema = object().shape({
   username: string()
     .required("Username is a required field.")
     .min(3, "Your username must contain at least 3 characters")
-    .max(14, "Your username can contain at most 14 characters"),
+    .max(20, "Your username can contain at most 20 characters"),
   email: string()
     .required("Email is a required field.")
     .email("You must enter a valid email."),
@@ -28,6 +29,9 @@ const validationSchema = object().shape({
   confirmPassword: string()
     .required("Confirm Password is a required field.")
     .oneOf([ref("password")], "The password you provided does not match."),
+  accessKey: string()
+    .required("Access Key is a required field.")
+    .max(50, "Your access key can contain at most 50 characters"),
 });
 
 const Register = () => {
@@ -45,32 +49,43 @@ const Register = () => {
             }, 400);
           }}
         >
-          {({ errors, isSubmitting }) => (
+          {({ errors, isSubmitting, values }) => (
             <Form>
-              <Input as={Input} name="username" label="Username" type="text" />
               <Input
-                as={Input}
+                name="username"
+                label="Username"
+                type="text"
+                value={values.username || ""}
+              />
+              <Input
                 name="email"
                 label="Email Address"
                 type="email"
+                value={values.email || ""}
               />
               <Input
-                as={Input}
                 name="password"
                 label="Password"
                 type="password"
+                value={values.password || ""}
               />
               <Input
-                as={Input}
                 name="confirmPassword"
                 label="Confirm Password"
                 type="password"
+                value={values.confirmPassword || ""}
+              />
+              <Input
+                name="accessKey"
+                label="Access Key"
+                type="text"
+                value={values.accessKey || ""}
               />
               <div className={classes.formButtons}>
-                <input type="reset" value="Clear" />
+                <input type="reset" value="Reset" />
                 <input
                   type="submit"
-                  value="Create Account"
+                  value="Create"
                   disabled={isSubmitting || Object.keys(errors).length > 0}
                 />
               </div>

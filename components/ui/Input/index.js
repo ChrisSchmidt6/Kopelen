@@ -9,23 +9,34 @@ const Input = (props) => {
 
   const [field, meta] = useField(props);
 
-  const handleFocus = (e) => {
-    if (inputRef.current.value.length > 0) setIsFocused(true);
+  const handleFocus = () => {
+    setIsFocused(true);
   };
 
   const focusField = () => {
-    setIsFocused(true);
     inputRef.current.focus();
   };
 
   const handleBlur = (e) => {
-    if (inputRef.current.value.length === 0) setIsFocused(false);
+    if (props.value.length === 0) {
+      setIsFocused(false);
+    }
     field.onBlur(e);
   };
 
   useEffect(() => {
-    if (inputRef.current.value.length > 0) setIsFocused(true);
-  }, []);
+    const timer = setTimeout(() => {
+      if (props.value.length > 0) {
+        setIsFocused(true);
+      } else if (inputRef.current !== document.activeElement) {
+        setIsFocused(false);
+      }
+    }, 300);
+
+    return () => {
+      clearTimeout(timer);
+    };
+  }, [props.value]);
 
   const showError = meta.touched && meta.error;
   const errorClass = showError ? classes.error : null;
@@ -48,9 +59,7 @@ const Input = (props) => {
             onBlur={(e) => {
               handleBlur(e);
             }}
-            onFocus={(e) => {
-              handleFocus(e);
-            }}
+            onFocus={handleFocus}
           />
         </div>
         {showError ? <small>{meta.error}</small> : null}

@@ -24,7 +24,6 @@ const CommentSection = (props) => {
   return (
     <div className={props.className}>
       <form className={classes.addComment}>
-        <label htmlFor="comment" />
         <textarea name="comment" placeholder="Leave a comment..." />
         <div className={classes.interact}>
           <input className={classes.cancel} type="reset" value="Cancel" />

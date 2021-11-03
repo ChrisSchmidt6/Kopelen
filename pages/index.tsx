@@ -51,7 +51,7 @@ const Home = () => {
     );
   });
 
-  const handleRedirect = (url) => {
+  const handleRedirect = (url: string) => {
     router.push(url);
   };
 
@@ -65,8 +65,8 @@ const Home = () => {
         </ToggleButton>
         <ToggleButton>
           <div className={classes.button}>Filter</div>
-          <li disabled>New</li>
-          <li disabled>Trending</li>
+          <li>New</li>
+          <li>Trending</li>
         </ToggleButton>
         <div className={classes.createButton} onClick={() => handleRedirect("/create")}>
           <MdPostAdd /> Create

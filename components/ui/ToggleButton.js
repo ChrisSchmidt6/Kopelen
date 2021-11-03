@@ -34,15 +34,13 @@ const ToggleButton = (props) => {
 
   const Menu = DropdownOptions.map((option) => {
     key++;
-    if (!option.props.disabled) {
-      return cloneElement(option, {
-        onClick: () => {
-          if (option.props.onClick) option.props.onClick();
-          dropdownHandler();
-        },
-        key,
-      });
-    } else return option;
+    return cloneElement(option, {
+      onClick: () => {
+        if (option.props.onClick) option.props.onClick();
+        dropdownHandler();
+      },
+      key,
+    });
   });
 
   return (

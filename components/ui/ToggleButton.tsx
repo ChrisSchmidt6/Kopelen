@@ -1,8 +1,8 @@
-import { cloneElement, useState } from "react";
+import React, { cloneElement, ReactChild, ReactElement, useState } from "react";
 
 import classes from "./ToggleButton.module.css";
 
-const ToggleButton = (props) => {
+const ToggleButton: React.FC<{ rightAlign?: boolean, children: Array<ReactElement> }> = (props) => {
   const [showMenu, setShowMenu] = useState(false);
 
   const dropdownHandler = () => {
@@ -44,7 +44,7 @@ const ToggleButton = (props) => {
   });
 
   return (
-    <div className={classes.dropdown} onBlur={unfocusHandler} tabIndex="-1">
+    <div className={classes.dropdown} onBlur={unfocusHandler} tabIndex={-1}>
       {ClonedIcon}
       {showMenu && (
         <ul

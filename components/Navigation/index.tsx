@@ -11,7 +11,7 @@ const Navigation = () => {
   const [isMenuOpen, setisMenuOpen] = useState(false);
   const router = useRouter();
 
-  const handleRedirect = (url) => {
+  const handleRedirect = (url: string) => {
     router.push(url);
     if (isMenuOpen) setisMenuOpen(false);
   };
@@ -33,7 +33,7 @@ const Navigation = () => {
       <div
         className={updatedMenuButtonClasses}
         onClick={handleMenu}
-        tabIndex="-1"
+        tabIndex={-1}
       >
         <MdMenu />
       </div>

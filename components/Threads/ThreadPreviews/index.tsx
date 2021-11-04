@@ -10,19 +10,25 @@ import {
 
 import classes from "./ThreadPreviews.module.css";
 
-const ThreadPreviews = (props) => {
+const ThreadPreviews: React.FC<{
+  title: string;
+  author: string;
+  id: string;
+  type: string;
+  data: string;
+}> = (props) => {
   const [isLiked, setIsLiked] = useState(false);
   const [isFlagged, setIsFlagged] = useState(false);
 
   const isModerator = false;
 
-  const handleVideo = (link) => {
+  const handleVideo = (link: string) => {
     const isYoutubeLink =
       /^(http(s)?:\/\/)?((w){3}.)?youtu(be|.be)?(\.com)?\/.+/; // Check if link is a youtube link
     if (isYoutubeLink.test(link)) {
       const id = link.match(
         /^.*(?:(?:youtu\.be\/|v\/|vi\/|u\/\w\/|embed\/)|(?:(?:watch)?\?v(?:i)?=|\&v(?:i)?=))([^#\&\?]*).*/
-      )[1];
+      )![1];
       const url = `https://www.youtube.com/embed/${id}?rel=0`;
       return (
         <div className={classes.video}>

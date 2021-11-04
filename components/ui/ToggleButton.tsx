@@ -2,7 +2,10 @@ import React, { cloneElement, ReactElement, useState } from "react";
 
 import classes from "./ToggleButton.module.css";
 
-const ToggleButton: React.FC<{ rightAlign?: boolean, children: Array<ReactElement> }> = (props) => {
+const ToggleButton: React.FC<{
+  rightAlign?: boolean;
+  children: Array<ReactElement>;
+}> = (props) => {
   const [showMenu, setShowMenu] = useState(false);
 
   const dropdownHandler = () => {

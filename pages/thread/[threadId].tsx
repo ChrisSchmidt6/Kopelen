@@ -1,6 +1,16 @@
+import { GetStaticProps } from "next";
+
 import Threads from "../../components/Threads/FullThreads";
 
-const DUMMY_DATA = [
+type dummyThread = {
+  id: string,
+  type: string,
+  author: string,
+  title: string,
+  data: string,
+}
+
+const DUMMY_DATA: dummyThread[] = [
   {
     id: "t1",
     type: "text",
@@ -24,7 +34,7 @@ const DUMMY_DATA = [
   },
 ];
 
-const Thread = (props) => {
+const Thread: React.FC<{ threadData: dummyThread[] }> = (props) => {
   return <Threads {...props.threadData} />;
 };
 
@@ -52,8 +62,8 @@ export const getStaticPaths = async () => {
 };
 
 // simulate fetching thread information from a database
-export const getStaticProps = async (context) => {
-  const threadId = context.params.threadId;
+export const getStaticProps: GetStaticProps = async (context) => {
+  const threadId = context.params!.threadId as string;
 
   // since we don't currently have any db stuff set up...
   const indexWorkaround = ["t1", "t9", "t10"];

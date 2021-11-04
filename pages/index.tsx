@@ -46,7 +46,6 @@ const Home = () => {
       <ThreadPreviews
         key={thread.id}
         {...threadCopy}
-        originalData={thread.data}
       />
     );
   });

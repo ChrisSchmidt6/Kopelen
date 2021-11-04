@@ -8,7 +8,7 @@ import {
 
 import classes from "./Comment.module.css";
 
-const Comment = (props) => {
+const Comment: React.FC<{ author: string, content: string }> = (props) => {
   const [isLiked, setIsLiked] = useState(false);
   const [isFlagged, setIsFlagged] = useState(false);
 

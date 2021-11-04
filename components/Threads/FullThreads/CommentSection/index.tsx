@@ -20,7 +20,7 @@ const DUMMY_COMMENTS = [
   },
 ];
 
-const CommentSection = (props) => {
+const CommentSection: React.FC<{ className: string }> = (props) => {
   return (
     <div className={props.className}>
       <form className={classes.addComment}>

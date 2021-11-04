@@ -2,10 +2,10 @@ import { useRouter } from "next/router";
 
 import classes from "./NavigationDrawer.module.css";
 
-const NavigationDrawer = (props) => {
+const NavigationDrawer: React.FC<{ closeMenu: () => void, open: boolean }> = (props) => {
   const router = useRouter();
 
-  const handleRedirect = (url) => {
+  const handleRedirect = (url: string) => {
     router.push(url);
     props.closeMenu();
   };
@@ -22,7 +22,7 @@ const NavigationDrawer = (props) => {
           <li onClick={() => handleRedirect("/login")}>Sign In</li>
           <li onClick={() => handleRedirect("/register")}>Register</li>
           <li className={classes.divider} />
-          <li disabled>Settings</li>
+          <li>Settings</li>
         </ul>
         <div className={classes.background} onClick={props.closeMenu}></div>
       </div>

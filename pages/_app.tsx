@@ -1,10 +1,11 @@
+import { AppProps } from "next/app";
 import Head from "next/head";
 
 import Navigation from "../components/Navigation";
 
 import "../styles/globals.css";
 
-const Kopelen = ({ Component, pageProps }) => {
+const Kopelen = ({ Component, pageProps }: AppProps) => {
   return (
     <>
       <Head>

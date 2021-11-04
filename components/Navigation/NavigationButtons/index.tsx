@@ -8,7 +8,7 @@ import classes from "./NavigationButtons.module.css";
 const NavigationButtons = () => {
   const router = useRouter();
 
-  const handleRedirect = (url) => {
+  const handleRedirect = (url: string) => {
     router.push(url);
   };
 
@@ -27,7 +27,7 @@ const NavigationButtons = () => {
         </ToggleButton>
         <ToggleButton rightAlign>
           <MdSettings />
-          <li disabled>Settings</li>
+          <li>Settings</li>
         </ToggleButton>
       </div>
     </div>

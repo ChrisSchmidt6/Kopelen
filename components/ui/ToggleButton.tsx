@@ -1,4 +1,4 @@
-import React, { cloneElement, ReactChild, ReactElement, useState } from "react";
+import React, { cloneElement, ReactElement, useState } from "react";
 
 import classes from "./ToggleButton.module.css";
 

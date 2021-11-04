@@ -1,11 +1,16 @@
-import { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useField } from "formik";
 
 import classes from "./Input.module.css";
 
-const Input = (props) => {
+const Input: React.FC<{
+  value: string;
+  name: string;
+  label: string;
+  type: string;
+}> = (props) => {
   const [isFocused, setIsFocused] = useState(false);
-  const inputRef = useRef(null);
+  const inputRef = useRef<HTMLInputElement>(null);
 
   const [field, meta] = useField(props);
 
@@ -14,14 +19,14 @@ const Input = (props) => {
   };
 
   const focusField = () => {
-    inputRef.current.focus();
+    inputRef.current!.focus();
   };
 
-  const handleBlur = (e) => {
+  const handleBlur = (event: React.FocusEvent) => {
     if (props.value.length === 0) {
       setIsFocused(false);
     }
-    field.onBlur(e);
+    field.onBlur(event);
   };
 
   useEffect(() => {
@@ -39,7 +44,7 @@ const Input = (props) => {
   }, [props.value]);
 
   const showError = meta.touched && meta.error;
-  const errorClass = showError ? classes.error : null;
+  const errorClass = showError ? classes.error : undefined;
 
   const labelClasses = `${isFocused ? classes.active + " " : ""}${errorClass}`;
 
@@ -52,7 +57,6 @@ const Input = (props) => {
           </label>
           <input
             className={errorClass}
-            name={props.name}
             type={props.type}
             ref={inputRef}
             {...field}

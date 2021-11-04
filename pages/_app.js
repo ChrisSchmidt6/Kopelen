@@ -4,7 +4,7 @@ import Navigation from "../components/Navigation";
 
 import "../styles/globals.css";
 
-function Kopelen({ Component, pageProps }) {
+const Kopelen = ({ Component, pageProps }) => {
   return (
     <>
       <Head>
@@ -28,6 +28,6 @@ function Kopelen({ Component, pageProps }) {
       </div>
     </>
   );
-}
+};
 
 export default Kopelen;

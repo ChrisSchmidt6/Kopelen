@@ -1,5 +1,6 @@
 import { useContext, useEffect } from "react";
 import { AppProps } from "next/app";
+import { NextComponentType } from "next";
 import Head from "next/head";
 
 import Navigation from "../components/Navigation";
@@ -7,7 +8,6 @@ import Navigation from "../components/Navigation";
 import AuthContext, { AuthContextProvider } from "store/auth-context";
 
 import "../styles/globals.css";
-import { NextComponentType } from "next";
 
 const Kopelen: React.FC<{
   required: { Component: NextComponentType; pageProps: any };

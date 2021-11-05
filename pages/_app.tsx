@@ -1,13 +1,29 @@
+import { useContext, useEffect } from "react";
 import { AppProps } from "next/app";
 import Head from "next/head";
 
 import Navigation from "../components/Navigation";
 
-import { AuthContextProvider } from "store/auth-context";
+import AuthContext, { AuthContextProvider } from "store/auth-context";
 
 import "../styles/globals.css";
+import { NextComponentType } from "next";
 
-const Kopelen = ({ Component, pageProps }: AppProps) => {
+const Kopelen: React.FC<{
+  required: { Component: NextComponentType; pageProps: any };
+}> = (props) => {
+  const authCtx = useContext(AuthContext);
+
+  useEffect(() => {
+    const authToken = localStorage.getItem("authToken");
+    if (authToken) {
+      authCtx.onLogin("autologin", "12345", true);
+    }
+  }, []);
+
+  const Component = props.required.Component;
+  const pageProps = props.required.pageProps;
+
   return (
     <>
       <Head>
@@ -25,14 +41,21 @@ const Kopelen = ({ Component, pageProps }: AppProps) => {
           rel="stylesheet"
         />
       </Head>
-      <AuthContextProvider>
-        <Navigation />
-        <div id="main">
-          <Component {...pageProps} />
-        </div>
-      </AuthContextProvider>
+      <Navigation />
+      <div id="main">
+        <Component {...pageProps} />
+      </div>
     </>
   );
 };
 
-export default Kopelen;
+// Wrap the AuthContextProvider around _app component to handle login persistence
+const WrappedKopelen = ({ Component, pageProps }: AppProps) => {
+  return (
+    <AuthContextProvider>
+      <Kopelen required={{ Component, pageProps }} />
+    </AuthContextProvider>
+  );
+};
+
+export default WrappedKopelen;

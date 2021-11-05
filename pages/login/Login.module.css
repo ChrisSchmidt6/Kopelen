@@ -23,7 +23,7 @@
   float: right;
 }
 
-.formButtons input {
+.formButtons input, .logout {
   border: none;
   border-radius: 25px;
   background: #590075;
@@ -56,6 +56,12 @@
 
 .formButtons input[type="reset"] {
   background: #545454;
+}
+
+.logoutBody {
+  width: fit-content;
+  margin: 0 auto;
+  text-align: center;
 }
 
 @media screen and (max-width: 600px) {

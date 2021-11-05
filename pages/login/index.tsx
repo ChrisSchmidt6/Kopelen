@@ -1,7 +1,11 @@
+import { useContext, useEffect } from "react";
+import router from "next/router";
 import { Formik, Form } from "formik";
 import { object, string } from "yup";
 
 import Input from "../../components/ui/Input";
+
+import AuthContext from "store/auth-context";
 
 import classes from "./Login.module.css";
 
@@ -20,6 +24,22 @@ const validationSchema = object().shape({
 });
 
 const Login = () => {
+  const authCtx = useContext(AuthContext);
+
+  if (authCtx.isLoggedIn) {
+    return (
+      <div className={classes.container}>
+        <h1>You are already signed in</h1>
+        <div className={classes.logoutBody}>
+          <p>Did you mean to ...</p>
+          <button className={classes.logout} onClick={authCtx.onLogout}>
+            Sign Out
+          </button>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <>
       <div className={classes.container}>
@@ -28,11 +48,20 @@ const Login = () => {
           initialValues={initialValues}
           validationSchema={validationSchema}
           validateOnMount
-          onSubmit={(values, { setSubmitting }) => {
+          onSubmit={(values, { setSubmitting, resetForm }) => {
             setTimeout(() => {
-              alert(JSON.stringify(values, null, 2));
+              resetForm();
+              authCtx.onLogin(values.email, values.password, true);
               setSubmitting(false);
-            }, 400);
+              const origin = router.query.origin?.toString();
+              if (origin) {
+                // Assuming the origin is stored with commas replacing the slashes
+                const originURL = `/${origin.replaceAll(",", "/")}`;
+                router.push(originURL);
+              } else {
+                router.push("/");
+              }
+            }, 300);
           }}
           onReset={(values, { validateForm }) => {
             validateForm(initialValues);

@@ -3,6 +3,8 @@ import Head from "next/head";
 
 import Navigation from "../components/Navigation";
 
+import { AuthContextProvider } from "store/auth-context";
+
 import "../styles/globals.css";
 
 const Kopelen = ({ Component, pageProps }: AppProps) => {
@@ -23,10 +25,12 @@ const Kopelen = ({ Component, pageProps }: AppProps) => {
           rel="stylesheet"
         />
       </Head>
-      <Navigation />
-      <div id="main">
-        <Component {...pageProps} />
-      </div>
+      <AuthContextProvider>
+        <Navigation />
+        <div id="main">
+          <Component {...pageProps} />
+        </div>
+      </AuthContextProvider>
     </>
   );
 };

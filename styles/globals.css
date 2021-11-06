@@ -6,6 +6,10 @@ body {
   font-family: "Metrophobic", sans-serif;
 }
 
+button {
+  font-family: inherit;
+}
+
 a {
   color: inherit;
   text-decoration: none;

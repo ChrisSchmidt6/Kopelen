@@ -1,24 +1,20 @@
-.button,
-.createButton {
-  border: none;
-  border-radius: 25px;
-  background: #590075;
-  color: white;
-  margin: 0 10px 0 0;
+.leftButtons {
   width: fit-content;
-  font-size: 14pt;
-  padding: 10px 20px;
-  user-select: none;
-  cursor: pointer;
+  display: inline-block;
+  clear: right;
 }
 
-.createButton {
+.leftButtons button {
+  margin-right: 5px;
+}
+
+.rightButtons {
+  width: fit-content;
   float: right;
-  margin-right: 0;
 }
 
-.createButton svg {
-  font-size: 15px;
+.rightButtons svg {
+  font-size: 16px;
 }
 
 @media screen and (max-width: 600px) {

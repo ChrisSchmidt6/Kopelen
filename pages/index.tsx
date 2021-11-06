@@ -1,3 +1,4 @@
+import StyledButton from "components/ui/StyledButton";
 import { useRouter } from "next/router";
 import { MdPostAdd } from "react-icons/md";
 
@@ -42,12 +43,7 @@ const Home = () => {
     // Shorten text if too long, but still pass through the original text
     if (threadCopy.type === "text" && threadCopy.data.length > 1625)
       threadCopy.data = threadCopy.data.slice(0, 1622) + "...";
-    return (
-      <ThreadPreviews
-        key={thread.id}
-        {...threadCopy}
-      />
-    );
+    return <ThreadPreviews key={thread.id} {...threadCopy} />;
   });
 
   const handleRedirect = (url: string) => {
@@ -57,21 +53,22 @@ const Home = () => {
   return (
     <>
       <div className={classes.buttonWrap}>
-        <ToggleButton>
-          <div className={classes.button}>Sort</div>
-          <li onClick={() => handleRedirect("?sort=asc")}>Ascending</li>
-          <li onClick={() => handleRedirect("?sort=desc")}>Descending</li>
-        </ToggleButton>
-        <ToggleButton>
-          <div className={classes.button}>Filter</div>
-          <li>New</li>
-          <li>Trending</li>
-        </ToggleButton>
-        <div
-          className={classes.createButton}
-          onClick={() => handleRedirect("/create")}
-        >
-          <MdPostAdd /> Create
+        <div className={classes.leftButtons}>
+          <ToggleButton>
+            <StyledButton>Sort</StyledButton>
+            <li onClick={() => handleRedirect("?sort=asc")}>Ascending</li>
+            <li onClick={() => handleRedirect("?sort=desc")}>Descending</li>
+          </ToggleButton>
+          <ToggleButton>
+            <StyledButton>Filter</StyledButton>
+            <li>New</li>
+            <li>Trending</li>
+          </ToggleButton>
+        </div>
+        <div className={classes.rightButtons}>
+          <StyledButton onClick={() => handleRedirect("/create")}>
+            <MdPostAdd /> Create
+          </StyledButton>
         </div>
       </div>
       {ThreadsBundle}

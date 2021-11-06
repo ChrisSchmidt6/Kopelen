@@ -32,7 +32,7 @@ const Login = () => {
       <div className={classes.actionContainer}>
         <h2>You are already signed in</h2>
         <p>Did you mean to ...</p>
-        <StyledButton handleClick={authCtx.onLogout}>Sign Out</StyledButton>
+        <StyledButton onClick={authCtx.onLogout}>Sign Out</StyledButton>
       </div>
     );
   }

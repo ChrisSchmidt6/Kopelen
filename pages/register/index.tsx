@@ -46,7 +46,7 @@ const Register = () => {
     return (
       <div className={classes.actionContainer}>
         <h2>You must sign out first to create an account</h2>
-        <StyledButton handleClick={authCtx.onLogout}>Sign Out</StyledButton>
+        <StyledButton onClick={authCtx.onLogout}>Sign Out</StyledButton>
       </div>
     );
   }

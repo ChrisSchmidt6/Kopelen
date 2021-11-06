@@ -34,7 +34,7 @@ const Create = () => {
     return (
       <div className={classes.actionContainer}>
         <h2>You must sign in first to create a thread</h2>
-        <StyledButton handleClick={handleRedirectWithOrigin}>
+        <StyledButton onClick={handleRedirectWithOrigin}>
           Sign In
         </StyledButton>
       </div>

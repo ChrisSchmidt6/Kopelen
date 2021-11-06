@@ -4,6 +4,7 @@ import { Formik, Form } from "formik";
 import { object, ref, string } from "yup";
 
 import Input from "../../components/ui/Input";
+import StyledButton from "components/ui/StyledButton";
 
 import AuthContext from "store/auth-context";
 
@@ -43,13 +44,9 @@ const Register = () => {
 
   if (authCtx.isLoggedIn) {
     return (
-      <div className={classes.container}>
-        <div className={classes.logoutBody}>
-          <h2>You must sign out first to create an account</h2>
-          <button className={classes.logout} onClick={authCtx.onLogout}>
-            Sign Out
-          </button>
-        </div>
+      <div className={classes.actionContainer}>
+        <h2>You must sign out first to create an account</h2>
+        <StyledButton handleClick={authCtx.onLogout}>Sign Out</StyledButton>
       </div>
     );
   }

@@ -4,6 +4,7 @@ import { Formik, Form } from "formik";
 import { object, string } from "yup";
 
 import Input from "../../components/ui/Input";
+import StyledButton from "components/ui/StyledButton";
 
 import AuthContext from "store/auth-context";
 
@@ -28,14 +29,10 @@ const Login = () => {
 
   if (authCtx.isLoggedIn) {
     return (
-      <div className={classes.container}>
-        <h1>You are already signed in</h1>
-        <div className={classes.logoutBody}>
-          <p>Did you mean to ...</p>
-          <button className={classes.logout} onClick={authCtx.onLogout}>
-            Sign Out
-          </button>
-        </div>
+      <div className={classes.actionContainer}>
+        <h2>You are already signed in</h2>
+        <p>Did you mean to ...</p>
+        <StyledButton handleClick={authCtx.onLogout}>Sign Out</StyledButton>
       </div>
     );
   }

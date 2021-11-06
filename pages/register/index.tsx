@@ -3,7 +3,7 @@ import router from "next/router";
 import { Formik, Form } from "formik";
 import { object, ref, string } from "yup";
 
-import Input from "../../components/ui/Input";
+import StyledInput from "components/ui/StyledInput";
 import StyledButton from "components/ui/StyledButton";
 
 import AuthContext from "store/auth-context";
@@ -78,31 +78,31 @@ const Register = () => {
         >
           {({ errors, isSubmitting, values }) => (
             <Form>
-              <Input
+              <StyledInput
                 name="username"
                 label="Username"
                 type="text"
                 value={values.username || ""}
               />
-              <Input
+              <StyledInput
                 name="email"
                 label="Email Address"
                 type="email"
                 value={values.email || ""}
               />
-              <Input
+              <StyledInput
                 name="password"
                 label="Password"
                 type="password"
                 value={values.password || ""}
               />
-              <Input
+              <StyledInput
                 name="confirmPassword"
                 label="Confirm Password"
                 type="password"
                 value={values.confirmPassword || ""}
               />
-              <Input
+              <StyledInput
                 name="accessKey"
                 label="Access Key"
                 type="text"

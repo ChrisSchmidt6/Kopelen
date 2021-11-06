@@ -1,9 +1,9 @@
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 import router from "next/router";
 import { Formik, Form } from "formik";
 import { object, string } from "yup";
 
-import Input from "../../components/ui/Input";
+import StyledInput from "components/ui/StyledInput";
 import StyledButton from "components/ui/StyledButton";
 
 import AuthContext from "store/auth-context";
@@ -66,13 +66,13 @@ const Login = () => {
         >
           {({ errors, isSubmitting, values }) => (
             <Form>
-              <Input
+              <StyledInput
                 name="email"
                 label="Email Address"
                 type="email"
                 value={values.email || ""}
               />
-              <Input
+              <StyledInput
                 name="password"
                 label="Password"
                 type="password"

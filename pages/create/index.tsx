@@ -3,7 +3,7 @@ import { useRouter } from "next/router";
 import { Field, Formik, Form } from "formik";
 import { object, string } from "yup";
 
-import Input from "../../components/ui/Input";
+import StyledInput from "components/ui/StyledInput";
 import StyledButton from "../../components/ui/StyledButton";
 
 import AuthContext from "store/auth-context";
@@ -34,9 +34,7 @@ const Create = () => {
     return (
       <div className={classes.actionContainer}>
         <h2>You must sign in first to create a thread</h2>
-        <StyledButton onClick={handleRedirectWithOrigin}>
-          Sign In
-        </StyledButton>
+        <StyledButton onClick={handleRedirectWithOrigin}>Sign In</StyledButton>
       </div>
     );
   }
@@ -61,7 +59,7 @@ const Create = () => {
         >
           {({ errors, isSubmitting, values }) => (
             <Form>
-              <Input
+              <StyledInput
                 name="title"
                 label="Title"
                 type="text"

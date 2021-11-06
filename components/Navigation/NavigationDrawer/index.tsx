@@ -1,8 +1,14 @@
+import { ReactElement } from "react";
 import { useRouter } from "next/router";
 
 import classes from "./NavigationDrawer.module.css";
 
-const NavigationDrawer: React.FC<{ closeMenu: () => void, open: boolean }> = (props) => {
+const NavigationDrawer: React.FC<{
+  closeMenu: () => void;
+  open: boolean;
+  onLogout: () => void;
+  isLoggedIn: boolean;
+}> = (props) => {
   const router = useRouter();
 
   const handleRedirect = (url: string) => {
@@ -10,7 +16,32 @@ const NavigationDrawer: React.FC<{ closeMenu: () => void, open: boolean }> = (pr
     props.closeMenu();
   };
 
-  const updatedClasses = `${classes.menu}${props.open ? ` ${classes.active}` : ""}`;
+  const handleLogout = () => {
+    props.onLogout();
+    props.closeMenu();
+  }
+
+  const updatedClasses = `${classes.menu}${
+    props.open ? ` ${classes.active}` : ""
+  }`;
+
+  let accountOptions: ReactElement;
+
+  if (props.isLoggedIn) {
+    accountOptions = (
+      <>
+        <li>Profile</li>
+        <li onClick={handleLogout}>Sign Out</li>
+      </>
+    );
+  } else {
+    accountOptions = (
+      <>
+        <li onClick={() => handleRedirect("/login")}>Sign In</li>
+        <li onClick={() => handleRedirect("/register")}>Register</li>
+      </>
+    );
+  }
 
   return (
     <>
@@ -19,8 +50,7 @@ const NavigationDrawer: React.FC<{ closeMenu: () => void, open: boolean }> = (pr
           <li onClick={() => handleRedirect("/")}>Threads</li>
           <li onClick={() => handleRedirect("/create")}>Create Thread</li>
           <li className={classes.divider} />
-          <li onClick={() => handleRedirect("/login")}>Sign In</li>
-          <li onClick={() => handleRedirect("/register")}>Register</li>
+          {accountOptions}
           <li className={classes.divider} />
           <li>Settings</li>
         </ul>

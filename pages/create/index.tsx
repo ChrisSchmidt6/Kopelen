@@ -1,7 +1,12 @@
+import { useContext } from "react";
+import { useRouter } from "next/router";
 import { Field, Formik, Form } from "formik";
 import { object, string } from "yup";
 
 import Input from "../../components/ui/Input";
+import StyledButton from "../../components/ui/StyledButton";
+
+import AuthContext from "store/auth-context";
 
 import classes from "./Create.module.css";
 
@@ -18,6 +23,24 @@ const validationSchema = object().shape({
 });
 
 const Create = () => {
+  const authCtx = useContext(AuthContext);
+  const router = useRouter();
+
+  const handleRedirectWithOrigin = () => {
+    router.push("/login?origin=create");
+  };
+
+  if (!authCtx.isLoggedIn) {
+    return (
+      <div className={classes.actionContainer}>
+        <h2>You must sign in first to create a thread</h2>
+        <StyledButton handleClick={handleRedirectWithOrigin}>
+          Sign In
+        </StyledButton>
+      </div>
+    );
+  }
+
   return (
     <>
       <div className={classes.container}>

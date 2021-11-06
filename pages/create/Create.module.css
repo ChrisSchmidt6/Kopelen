@@ -1,4 +1,5 @@
-.container {
+.container,
+.actionContainer {
   border-radius: 10px;
   background: #434343;
   padding: 10px 0;
@@ -25,6 +26,10 @@
   border: 2px solid grey;
   color: #fff;
   resize: vertical;
+}
+
+.actionContainer {
+  text-align: center;
 }
 
 .formButtons {

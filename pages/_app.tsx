@@ -45,6 +45,7 @@ const Kopelen: React.FC<{
       <div id="main">
         <Component {...pageProps} />
       </div>
+      <div id="modal"></div>
     </>
   );
 };

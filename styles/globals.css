@@ -29,6 +29,16 @@ a {
   max-width: 100%;
 }
 
+#modal div {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 100;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
 @media screen and (min-width: 1400px) {
   #main {
     width: 1200px;

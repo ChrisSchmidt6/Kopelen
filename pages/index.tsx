@@ -1,9 +1,9 @@
-import StyledButton from "components/ui/StyledButton";
 import { useRouter } from "next/router";
 import { MdPostAdd } from "react-icons/md";
 
-import ThreadPreviews from "../components/Threads/ThreadPreviews";
-import ToggleButton from "../components/ui/ToggleButton";
+import ThreadPreviews from "components/Threads/ThreadPreviews";
+import ToggleButton from "components/UI/ToggleButton";
+import StyledButton from "components/UI/StyledButton";
 
 import classes from "./Home.module.css";
 

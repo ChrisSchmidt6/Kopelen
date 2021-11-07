@@ -3,8 +3,8 @@ import router from "next/router";
 import { Formik, Form } from "formik";
 import { object, string } from "yup";
 
-import StyledInput from "components/ui/StyledInput";
-import StyledButton from "components/ui/StyledButton";
+import StyledInput from "components/UI/StyledInput";
+import StyledButton from "components/UI/StyledButton";
 
 import AuthContext from "store/auth-context";
 

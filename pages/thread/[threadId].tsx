@@ -1,6 +1,6 @@
 import { GetStaticProps } from "next";
 
-import Threads from "../../components/Threads/FullThreads";
+import Threads from "components/Threads/FullThreads";
 
 type dummyThread = {
   id: string,
@@ -34,7 +34,7 @@ const DUMMY_DATA: dummyThread[] = [
   },
 ];
 
-const Thread: React.FC<{ threadData: dummyThread[] }> = (props) => {
+const Thread: React.FC<{ threadData: dummyThread }> = (props) => {
   return <Threads {...props.threadData} />;
 };
 

@@ -1,4 +1,6 @@
-import React, { cloneElement, ReactElement, useState } from "react";
+import React, { cloneElement, MouseEvent, ReactElement, useState } from "react";
+
+import Menu from "./Menu";
 
 import classes from "./ToggleButton.module.css";
 
@@ -9,7 +11,7 @@ const ToggleButton: React.FC<{
   const [showMenu, setShowMenu] = useState(false);
 
   const dropdownHandler = () => {
-    setShowMenu(!showMenu);
+    setShowMenu((prevShowMenu) => !prevShowMenu);
   };
 
   const unfocusHandler = () => {
@@ -17,46 +19,22 @@ const ToggleButton: React.FC<{
   };
 
   // First child should be the "button" that toggles the drop down
-  const FirstChild = props.children[0];
-  const ogClass = FirstChild.props.className;
-
-  // Add original element class(es), dropdownButton class, and active class if active.
-  const iconClasses = `${ogClass ? `${ogClass} ` : ""}${
-    classes.dropdownButton
-  }${showMenu ? ` ${classes.active}` : ""}`;
-
-  // Clone toggle "button" to add click listener without wrapping it
-  const ClonedIcon = cloneElement(FirstChild, {
+  const FirstChild = cloneElement(props.children[0], {
     onClick: dropdownHandler,
-    className: iconClasses,
   });
 
-  const DropdownOptions = [...props.children.slice(1)];
-
-  let key = 0;
-
-  const Menu = DropdownOptions.map((option) => {
-    key++;
-    return cloneElement(option, {
-      onClick: () => {
-        if (option.props.onClick) option.props.onClick();
-        dropdownHandler();
-      },
-      key,
-    });
-  });
+  const DropdownOptions = props.children.slice(1);
 
   return (
-    <div className={classes.dropdown} onBlur={unfocusHandler} tabIndex={-1}>
-      {ClonedIcon}
+    <div className={classes.dropdown} onMouseLeave={unfocusHandler}>
+      {FirstChild}
       {showMenu && (
-        <ul
-          className={`${
-            props.rightAlign ? classes.rightMenu : classes.leftMenu
-          }`}
-        >
-          {Menu}
-        </ul>
+        <Menu
+          show={showMenu}
+          options={DropdownOptions}
+          rightAlign={props.rightAlign}
+          clickHandler={unfocusHandler}
+        />
       )}
     </div>
   );

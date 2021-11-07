@@ -1,0 +1,37 @@
+.menu {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.18), 0 4px 8px 0 rgba(0, 0, 0, 0.18);
+  background-color: #696969;
+  overflow: hidden;
+  border-radius: 10px;
+  position: absolute;
+  margin: 5px 0 0 0;
+  padding: 0px;
+  width: fit-content;
+  top: calc(100% - 6px);
+  z-index: 2;
+}
+
+.menu li {
+  color: #fff;
+  font-weight: bold;
+  white-space: nowrap;
+  list-style-type: none;
+  text-align: left;
+  padding: 12px 30px;
+  display: flex;
+  user-select: none;
+  cursor: pointer;
+  font-size: 12pt;
+}
+
+.menu li:hover {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.rightMenu {
+  right: -10px;
+}
+
+.leftMenu {
+  left: -10px;
+}

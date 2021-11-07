@@ -12,27 +12,9 @@
   align-items: center;
 }
 
-.navIconContainer svg {
-  background-color: #454545;
-  padding: 6px;
-  color: white;
-  font-size: 46px;
-  margin-left: 0.15em;
-  cursor: pointer;
-  border-radius: 10px;
-}
-
 .navIconContainer {
   display: flex;
   right: 25px;
-}
-
-.navIconContainer svg {
-  display: block;
-}
-
-.navIconContainer div {
-  position: relative;
 }
 
 @media screen and (max-width: 600px) {

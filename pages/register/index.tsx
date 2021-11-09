@@ -65,8 +65,8 @@ const Register = () => {
             setSubmitting(false);
             const origin = router.query.origin?.toString();
             if (origin) {
-              // Assuming the origin is stored with commas replacing the slashes
-              const originURL = `/${origin.replaceAll(",", "/")}`;
+              // Assuming the origin is stored with commas replacing the slashes and replace caret with pound
+              const originURL = `/${origin.replaceAll(",", "/").replace("^", "#")}`;
               router.push(originURL);
             } else {
               router.push("/");

@@ -10,13 +10,13 @@ const Modal: React.FC<{
   handleClose: () => void;
   header: ReactElement;
   main: ReactElement;
-  footer: ReactElement;
+  className?: string;
 }> = (props) => {
 
   return createPortal(
     <>
       <div className="container" onClick={props.handleClose}></div>
-      <div className={classes.modal}>
+      <div className={`${classes.modal}${props.className ? ` ${props.className}` : ""}`}>
         <div className={classes.modalBody}>
           <header>{props.header}</header>
           <main>{props.main}</main>

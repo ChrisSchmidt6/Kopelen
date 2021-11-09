@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import {
   MdDeleteForever,
   MdEmojiEmotions,
@@ -6,20 +6,39 @@ import {
   MdOutlinedFlag,
 } from "react-icons/md";
 
+import AuthContext from "store/auth-context";
+
 import classes from "./Comment.module.css";
 
-const Comment: React.FC<{ author: string, content: string }> = (props) => {
+const Comment: React.FC<{
+  author: string;
+  content: string;
+  handleModalOpen: () => void;
+}> = (props) => {
   const [isLiked, setIsLiked] = useState(false);
   const [isFlagged, setIsFlagged] = useState(false);
+  const authCtx = useContext(AuthContext);
 
   const isModerator = false;
 
   const handleLike = () => {
-    setIsLiked(!isLiked);
+    if (!authCtx.isLoggedIn) {
+      props.handleModalOpen();
+    } else {
+      setIsLiked((prevState) => {
+        return !prevState;
+      });
+    }
   };
 
   const handleFlag = () => {
-    setIsFlagged(!isFlagged);
+    if (!authCtx.isLoggedIn) {
+      props.handleModalOpen();
+    } else {
+      setIsFlagged((prevState) => {
+        return !prevState;
+      });
+    }
   };
 
   const likeClasses = `${classes.blueHover}${

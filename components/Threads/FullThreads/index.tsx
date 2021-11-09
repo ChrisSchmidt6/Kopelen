@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import {
   MdDeleteForever,
   MdEmojiEmotions,
@@ -9,16 +9,23 @@ import {
 
 import CommentSection from "./CommentSection";
 
+import AuthContext from "store/auth-context";
+
 import classes from "./FullThreads.module.css";
+import router from "next/router";
+import LoginModal from "../LoginModal";
 
 const FullThreads: React.FC<{
-  title: string;
-  author: string;
+  id: string;
   type: string;
+  author: string;
+  title: string;
   data: string;
 }> = (props) => {
   const [isLiked, setIsLiked] = useState(false);
   const [isFlagged, setIsFlagged] = useState(false);
+  const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
+  const authCtx = useContext(AuthContext);
 
   const isModerator = false;
 
@@ -44,12 +51,38 @@ const FullThreads: React.FC<{
     } else return <div>Error</div>;
   };
 
+  const openLoginModal = () => {
+    if (!authCtx.isLoggedIn) {
+      setIsLoginModalOpen(true);
+    }
+  };
+
+  const closeLoginModal = () => {
+    setIsLoginModalOpen(false);
+  };
+
+  const redirectWithOrigin = (type: "login" | "register") => {
+    router.push(`/${type}?origin=thread,${props.id}`);
+  };
+
   const handleLike = () => {
-    setIsLiked(!isLiked);
+    if (!authCtx.isLoggedIn) {
+      setIsLoginModalOpen(true);
+    } else {
+      setIsLiked((prevState) => {
+        return !prevState;
+      });
+    }
   };
 
   const handleFlag = () => {
-    setIsFlagged(!isFlagged);
+    if (!authCtx.isLoggedIn) {
+      setIsLoginModalOpen(true);
+    } else {
+      setIsFlagged((prevState) => {
+        return !prevState;
+      });
+    }
   };
 
   const likeClasses = `${classes.iconButton}${
@@ -63,6 +96,12 @@ const FullThreads: React.FC<{
 
   return (
     <>
+      {isLoginModalOpen && (
+        <LoginModal
+          handleClose={closeLoginModal}
+          redirectWithOrigin={redirectWithOrigin}
+        />
+      )}
       <div className={classes.thread}>
         <div className={classes.author}>
           Thread by: <u>{props.author}</u>
@@ -92,7 +131,10 @@ const FullThreads: React.FC<{
         </div>
       </div>
 
-      <CommentSection className={classes.comments} />
+      <CommentSection
+        className={classes.comments}
+        handleModalOpen={openLoginModal}
+      />
     </>
   );
 };

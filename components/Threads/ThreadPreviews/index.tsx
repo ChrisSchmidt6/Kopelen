@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
+import router from "next/router";
 import Link from "next/link";
 import {
   MdComment,
@@ -7,6 +8,10 @@ import {
   MdFlag,
   MdOutlinedFlag,
 } from "react-icons/md";
+
+import LoginModal from "../LoginModal";
+
+import AuthContext from "store/auth-context";
 
 import classes from "./ThreadPreviews.module.css";
 
@@ -19,6 +24,8 @@ const ThreadPreviews: React.FC<{
 }> = (props) => {
   const [isLiked, setIsLiked] = useState(false);
   const [isFlagged, setIsFlagged] = useState(false);
+  const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
+  const authCtx = useContext(AuthContext);
 
   const isModerator = false;
 
@@ -44,12 +51,38 @@ const ThreadPreviews: React.FC<{
     } else return <div>Error</div>;
   };
 
+  const openLoginModal = () => {
+    if (!authCtx.isLoggedIn) {
+      setIsLoginModalOpen(true);
+    }
+  };
+
+  const closeLoginModal = () => {
+    setIsLoginModalOpen(false);
+  };
+
+  const redirectWithOrigin = (type: "login" | "register") => {
+    router.push(`/${type}?origin=^${props.id}`);
+  };
+
   const handleLike = () => {
-    setIsLiked(!isLiked);
+    if (!authCtx.isLoggedIn) {
+      setIsLoginModalOpen(true);
+    } else {
+      setIsLiked((prevState) => {
+        return !prevState;
+      });
+    }
   };
 
   const handleFlag = () => {
-    setIsFlagged(!isFlagged);
+    if (!authCtx.isLoggedIn) {
+      setIsLoginModalOpen(true);
+    } else {
+      setIsFlagged((prevState) => {
+        return !prevState;
+      });
+    }
   };
 
   const likeClasses =
@@ -62,7 +95,13 @@ const ThreadPreviews: React.FC<{
 
   return (
     <>
-      <div className={classes.container}>
+      {isLoginModalOpen && (
+        <LoginModal
+          handleClose={closeLoginModal}
+          redirectWithOrigin={redirectWithOrigin}
+        />
+      )}
+      <div className={classes.container} id={props.id}>
         <div className={classes.author}>
           Thread by: <u>{props.author}</u>
         </div>

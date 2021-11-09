@@ -1,4 +1,5 @@
 import { useContext, useState } from "react";
+import router from "next/router";
 import {
   MdDeleteForever,
   MdEmojiEmotions,
@@ -8,12 +9,11 @@ import {
 } from "react-icons/md";
 
 import CommentSection from "./CommentSection";
+import LoginModal from "../LoginModal";
 
 import AuthContext from "store/auth-context";
 
 import classes from "./FullThreads.module.css";
-import router from "next/router";
-import LoginModal from "../LoginModal";
 
 const FullThreads: React.FC<{
   id: string;

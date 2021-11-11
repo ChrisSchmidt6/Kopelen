@@ -6,7 +6,7 @@ import Threads from "components/Threads/FullThreads";
 const Thread: React.FC<{ threadId: string }> = (props) => {
   const threads = useAppSelector((state) => state.threadsSlice.threads);
   const [threadData] = threads.filter((thread) => thread.id === props.threadId);
-  console.log(threadData);
+  
   if (!threadData)
     return <h1>This thread does not exist</h1>;
   return <Threads {...threadData} />;

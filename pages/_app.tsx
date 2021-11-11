@@ -2,9 +2,11 @@ import { useContext, useEffect } from "react";
 import { AppProps } from "next/app";
 import { NextComponentType } from "next";
 import Head from "next/head";
+import { Provider } from "react-redux";
 
 import Navigation from "components/Navigation";
 
+import { store } from "store";
 import AuthContext, { AuthContextProvider } from "store/auth-context";
 
 import "styles/globals.css";
@@ -54,7 +56,9 @@ const Kopelen: React.FC<{
 const WrappedKopelen = ({ Component, pageProps }: AppProps) => {
   return (
     <AuthContextProvider>
-      <Kopelen required={{ Component, pageProps }} />
+      <Provider store={store}>
+        <Kopelen required={{ Component, pageProps }} />
+      </Provider>
     </AuthContextProvider>
   );
 };

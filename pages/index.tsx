@@ -12,8 +12,8 @@ const Home = () => {
   const router = useRouter();
   const query = router.query;
 
-  let threadData = useAppSelector(state => state.threadsSlice.threads);
-  if (query["sort"] === "desc") threadData = threadData.reverse();
+  let threadData = useAppSelector((state) => state.threadsSlice.threads);
+  if (query["sort"] === "desc") threadData = [...threadData].reverse();
 
   const ThreadsBundle = threadData.map((thread) => {
     let threadCopy = { ...thread };

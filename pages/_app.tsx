@@ -1,6 +1,6 @@
 import { useContext, useEffect } from "react";
-import { AppProps } from "next/app";
 import { NextComponentType } from "next";
+import { AppProps } from "next/app";
 import Head from "next/head";
 import { Provider } from "react-redux";
 
@@ -21,7 +21,7 @@ const Kopelen: React.FC<{
     if (authToken) {
       authCtx.onLogin("autologin", "12345", true);
     }
-  }, []);
+  });
 
   const Component = props.required.Component;
   const pageProps = props.required.pageProps;
@@ -31,17 +31,6 @@ const Kopelen: React.FC<{
       <Head>
         <title>Kopelen</title>
         <meta name="description" content="Kopelen does things" />
-        <link rel="icon" href="/favicon.ico" />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link
-          rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossOrigin="true"
-        />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Metrophobic&display=swap"
-          rel="stylesheet"
-        />
       </Head>
       <Navigation />
       <div id="main">

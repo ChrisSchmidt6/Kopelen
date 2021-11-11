@@ -1,6 +1,7 @@
 import { useContext, useState } from "react";
-import router from "next/router";
+import Image from 'next/image';
 import Link from "next/link";
+import router from "next/router";
 import {
   MdComment,
   MdDeleteForever,
@@ -110,19 +111,19 @@ const ThreadPreviews: React.FC<{
           {isModerator ? <MdDeleteForever /> : flagIcon}
         </div>
 
-        <Link href={`/thread/${props.id}`}>
+        <Link href={`/thread/${props.id}`} passHref>
           <h4>{props.title}</h4>
         </Link>
 
         <div className={classes.containerBody}>
           {props.type === "text" && <p>{props.data}</p>}
-          {props.type === "image" && <img src={props.data} />}
+          {props.type === "image" && <Image src={props.data} alt="Thread image" />}
           {props.type === "video" && handleVideo(props.data)}
         </div>
 
         <div className={classes.interact}>
           <MdEmojiEmotions onClick={handleLike} className={likeClasses} />
-          <Link href={`/thread/${props.id}`}>
+          <Link href={`/thread/${props.id}`} passHref>
             <MdComment />
           </Link>
         </div>

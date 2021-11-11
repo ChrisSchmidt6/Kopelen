@@ -1,5 +1,4 @@
 import { useContext, useState } from "react";
-import Image from 'next/image';
 import router from "next/router";
 import {
   MdDeleteForever,
@@ -116,7 +115,7 @@ const FullThreads: React.FC<{
 
         <div className={classes.containerBody}>
           {props.type === "text" && <p>{props.data}</p>}
-          {props.type === "image" && <Image src={props.data} alt="Thread image" />}
+          {props.type === "image" && <img src={props.data} alt="Thread image" />}
           {props.type === "video" && handleVideo(props.data)}
         </div>
         <div className={classes.interact}>

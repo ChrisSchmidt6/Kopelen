@@ -1,5 +1,4 @@
 import { useContext, useState } from "react";
-import Image from "next/image";
 import Link from "next/link";
 import router from "next/router";
 import {
@@ -111,7 +110,7 @@ const ThreadPreviews: React.FC<{
         <div className={classes.containerBody}>
           {props.type === "text" && <p>{props.data}</p>}
           {props.type === "image" && (
-            <Image src={props.data} alt="Thread image" />
+            <img src={props.data} alt="Thread image" />
           )}
           {props.type === "video" && handleVideo(props.data)}
         </div>

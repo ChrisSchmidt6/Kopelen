@@ -8,12 +8,6 @@
   background: #434343;
 }
 
-.thread h2 {
-  color: white;
-  margin: 10px 0;
-}
-
-.thread h2,
 .containerBody {
   clear: both;
 }

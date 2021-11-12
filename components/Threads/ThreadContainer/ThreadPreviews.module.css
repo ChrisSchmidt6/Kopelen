@@ -10,29 +10,10 @@
   overflow: hidden;
 }
 
-.thread h4,
 .containerBody {
   max-width: 100%;
   margin: 0;
   display: block;
-}
-
-.thread h4 {
-  max-height: 1.2em;
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-}
-
-.thread h4 {
-  margin: 5px 0;
-  font-size: 14pt;
-  cursor: pointer;
-  clear: both;
-}
-
-.thread h4:hover {
-  color: #fff;
 }
 
 .containerBody {

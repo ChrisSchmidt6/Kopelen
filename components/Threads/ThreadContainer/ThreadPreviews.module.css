@@ -35,36 +35,6 @@
   color: #fff;
 }
 
-.interact {
-  margin: 5px 0;
-  color: #fff;
-}
-
-.interact {
-  font-size: 25px;
-  float: right;
-}
-
-.interact svg {
-  cursor: pointer;
-  overflow: hidden;
-  cursor: pointer;
-  margin-left: 5px;
-}
-
-.interact svg {
-  cursor: pointer;
-}
-
-.interact svg:hover,
-.interact svg.active {
-  color: #1f8cd4;
-}
-
-.interact svg:last-of-type:hover {
-  color: #9c9c9c;
-}
-
 .tags {
   margin-top: 7px;
   float: left;

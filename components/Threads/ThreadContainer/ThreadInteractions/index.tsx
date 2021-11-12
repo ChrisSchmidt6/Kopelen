@@ -1,6 +1,7 @@
 import Link from "next/link";
-
 import { MdComment, MdEmojiEmotions } from "react-icons/md";
+
+import classes from "./ThreadInteractions.module.css";
 
 const ThreadInteractions: React.FC<{
   className: { interact: string; iconButton: string; active: string };
@@ -9,20 +10,23 @@ const ThreadInteractions: React.FC<{
   view: "full" | "preview";
   id: string;
 }> = (props) => {
-  const likeClasses = `${props.className.iconButton}${
-    props.isLiked ? ` ${props.className.active}` : ""
-  }`;
   if (props.view === "full") {
+    const likeClasses = `${classes.iconButton}${
+      props.isLiked ? ` ${classes.active}` : ""
+    }`;
+
     return (
-      <div className={props.className.interact}>
+      <div className={classes.interactFull}>
         <div className={likeClasses} onClick={props.handleLike}>
           <MdEmojiEmotions /> Like
         </div>
       </div>
     );
   } else {
+    const likeClasses = props.isLiked ? classes.active : "";
+
     return (
-      <div className={props.className.interact}>
+      <div className={classes.interactPreview}>
         <MdEmojiEmotions className={likeClasses} onClick={props.handleLike} />
         <Link href={`/thread/${props.id}`} passHref>
           <MdComment />

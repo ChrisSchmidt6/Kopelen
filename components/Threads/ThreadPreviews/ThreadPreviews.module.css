@@ -74,9 +74,12 @@
   cursor: pointer;
 }
 
-.interact svg:last-of-type:hover,
-.deleteShortcut svg:hover {
+.interact svg:last-of-type:hover {
   color: #9c9c9c;
+}
+
+.deleteShortcut svg:hover {
+  color: #ca2850;
 }
 
 .blueHover:hover,

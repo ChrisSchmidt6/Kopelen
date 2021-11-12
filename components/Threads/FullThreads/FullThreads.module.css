@@ -69,27 +69,6 @@
   align-items: center;
 }
 
-.tags {
-  margin-top: 7px;
-  float: left;
-  display: flex;
-  align-items: center;
-}
-
-.tags svg {
-  font-size: 20px;
-}
-
-.tags span {
-  font-size: 11pt;
-  cursor: pointer;
-  padding: 2px 5px;
-}
-
-.tags span:hover {
-  color: #fff;
-}
-
 .iconButton {
   text-align: center;
   font-size: 15pt;
@@ -127,7 +106,7 @@
 }
 
 .deleteShortcut svg:hover {
-  color: #9c9c9c;
+  color: #ca2850;
 }
 
 .like:hover svg,
@@ -144,6 +123,27 @@
 
 .flagged {
   color: #ca2850;
+}
+
+.tags {
+  margin-top: 7px;
+  float: left;
+  display: flex;
+  align-items: center;
+}
+
+.tags svg {
+  font-size: 20px;
+}
+
+.tags span {
+  font-size: 11pt;
+  cursor: pointer;
+  padding: 2px 5px;
+}
+
+.tags span:hover {
+  color: #fff;
 }
 
 .comments {

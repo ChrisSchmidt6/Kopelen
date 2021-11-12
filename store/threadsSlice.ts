@@ -6,6 +6,7 @@ export type ThreadType = {
   author: string;
   title: string;
   data: string;
+  tags: string[];
 };
 
 type ThreadsState = {
@@ -20,6 +21,7 @@ const initialState: ThreadsState = {
       author: "chris",
       title: "Text Thread Preview Example",
       data: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam vestibulum ligula et nunc tincidunt, a egestas lorem laoreet. Vestibulum justo ex, ultricies vel luctus eu, vulputate id lorem. Vivamus posuere venenatis dolor quis condimentum. Fusce et mi suscipit, tincidunt urna ac, egestas velit. Praesent accumsan sollicitudin facilisis. Morbi pellentesque arcu id massa viverra molestie eget sit amet velit. Vestibulum suscipit arcu justo, ut mattis arcu aliquam in. Morbi est arcu, convallis at tempus id, pharetra eu purus.",
+      tags: ["Text", "Ipsum", "Example", "A", "B"],
     },
     {
       id: "T2",
@@ -27,6 +29,7 @@ const initialState: ThreadsState = {
       author: "cupe",
       title: "Image Thread Preview Example",
       data: "https://www.gannett-cdn.com/presto/2020/04/16/USAT/5b7ef814-a04d-44c8-86ef-1d47c798a1f1-Golds_gym_CharlesTown.jpg",
+      tags: ["Image", "Gym", "Example", "A", "C"],
     },
     {
       id: "T3",
@@ -34,6 +37,7 @@ const initialState: ThreadsState = {
       author: "potter",
       title: "Video Thread Preview Example",
       data: "https://www.youtube.com/watch?v=XU9Njr5ci3c",
+      tags: ["Video", "Malfoy", "Example", "B", "C"],
     },
   ],
 };

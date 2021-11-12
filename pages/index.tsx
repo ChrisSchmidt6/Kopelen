@@ -2,7 +2,7 @@ import { useRouter } from "next/router";
 import { MdPostAdd } from "react-icons/md";
 import { useAppSelector } from "hooks/reduxHooks";
 
-import ThreadPreviews from "components/Threads/ThreadPreviews";
+import Threads from "components/Threads";
 import ToggleButton from "components/UI/ToggleButton";
 import StyledButton from "components/UI/StyledButton";
 
@@ -20,7 +20,7 @@ const Home = () => {
     // Shorten text if too long, but still pass through the original text
     if (threadCopy.type === "text" && threadCopy.data.length > 1625)
       threadCopy.data = threadCopy.data.slice(0, 1622) + "...";
-    return <ThreadPreviews key={thread.id} {...threadCopy} />;
+    return <Threads key={thread.id} {...threadCopy} view="preview" />;
   });
 
   const handleRedirect = (url: string) => {

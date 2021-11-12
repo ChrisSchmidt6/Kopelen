@@ -1,4 +1,4 @@
-.container {
+.thread {
   width: 100%;
   max-height: 600px;
   background: #434343;
@@ -10,7 +10,7 @@
   overflow: hidden;
 }
 
-.container h4,
+.thread h4,
 .author,
 .containerBody {
   max-width: 100%;
@@ -18,7 +18,7 @@
   display: block;
 }
 
-.container h4,
+.thread h4,
 .author {
   max-height: 1.2em;
   overflow: hidden;
@@ -26,14 +26,14 @@
   text-overflow: ellipsis;
 }
 
-.container h4 {
+.thread h4 {
   margin: 5px 0;
   font-size: 14pt;
   cursor: pointer;
   clear: both;
 }
 
-.container h4:hover {
+.thread h4:hover {
   color: #fff;
 }
 
@@ -74,17 +74,17 @@
   cursor: pointer;
 }
 
+.interact svg:hover,
+.interact svg.active {
+  color: #1f8cd4;
+}
+
 .interact svg:last-of-type:hover {
   color: #9c9c9c;
 }
 
 .action svg:hover {
   color: #ca2850;
-}
-
-.blueHover:hover,
-.blueHover.active {
-  color: #1f8cd4;
 }
 
 .flagged {
@@ -170,7 +170,7 @@
 }
 
 @media screen and (max-width: 600px) {
-  .container {
+  .thread {
     width: 100%;
     border-radius: 0px;
     padding: 0 15px;

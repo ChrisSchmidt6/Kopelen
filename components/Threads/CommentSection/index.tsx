@@ -39,7 +39,11 @@ const CommentSection: React.FC<{
         </div>
       </form>
       {DUMMY_COMMENTS.map((comment) => (
-        <Comment key={comment.id} {...comment} handleModalOpen={props.handleModalOpen} />
+        <Comment
+          key={comment.id}
+          {...comment}
+          handleModalOpen={props.handleModalOpen}
+        />
       ))}
     </div>
   );

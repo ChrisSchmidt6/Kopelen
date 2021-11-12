@@ -1,15 +1,14 @@
 import { GetServerSideProps } from "next";
 import { useAppSelector } from "hooks/reduxHooks";
 
-import Threads from "components/Threads/FullThreads";
+import Threads from "components/Threads";
 
 const Thread: React.FC<{ threadId: string }> = (props) => {
   const threads = useAppSelector((state) => state.threadsSlice.threads);
   const [threadData] = threads.filter((thread) => thread.id === props.threadId);
-  
-  if (!threadData)
-    return <h1>This thread does not exist</h1>;
-  return <Threads {...threadData} />;
+
+  if (!threadData) return <h1>This thread does not exist</h1>;
+  return <Threads {...threadData} view="full" />;
 };
 
 // remember to switch to getStaticProps once adding data fetching

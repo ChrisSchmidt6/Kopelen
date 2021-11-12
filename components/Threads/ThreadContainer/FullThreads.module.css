@@ -62,7 +62,7 @@
   height: 100%;
 }
 
-.like {
+.interact {
   font-size: 25px;
   float: right;
   display: flex;
@@ -88,11 +88,11 @@
   color: rgba(255, 255, 255, 0.6);
 }
 
-.like {
+.interact {
   float: right;
 }
 
-.like svg {
+.interact svg {
   cursor: pointer;
   overflow: hidden;
   cursor: pointer;
@@ -100,7 +100,7 @@
   margin-right: 5px;
 }
 
-.like svg,
+.interact svg,
 .action svg {
   cursor: pointer;
 }
@@ -109,7 +109,7 @@
   color: #ca2850;
 }
 
-.like:hover svg,
+.interact:hover svg,
 .active,
 .active:hover {
   color: #1f8cd4;

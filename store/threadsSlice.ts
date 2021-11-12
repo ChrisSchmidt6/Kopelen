@@ -2,7 +2,7 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 export type ThreadType = {
   id: string;
-  type: string;
+  type: "text" | "image" | "video";
   author: string;
   title: string;
   data: string;

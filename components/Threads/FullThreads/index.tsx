@@ -5,7 +5,7 @@ import {
   MdEmojiEmotions,
   MdFlag,
   MdOutlinedFlag,
-  MdShare,
+  MdTag,
 } from "react-icons/md";
 
 import CommentSection from "./CommentSection";
@@ -21,6 +21,7 @@ const FullThreads: React.FC<{
   author: string;
   title: string;
   data: string;
+  tags: string[];
 }> = (props) => {
   const [isLiked, setIsLiked] = useState(false);
   const [isFlagged, setIsFlagged] = useState(false);
@@ -115,13 +116,16 @@ const FullThreads: React.FC<{
 
         <div className={classes.containerBody}>
           {props.type === "text" && <p>{props.data}</p>}
-          {props.type === "image" && <img src={props.data} alt="Thread image" />}
+          {props.type === "image" && (
+            <img src={props.data} alt="Thread image" />
+          )}
           {props.type === "video" && handleVideo(props.data)}
         </div>
-        <div className={classes.interact}>
-          <div className={classes.iconButton}>
-            <MdShare /> Share
-          </div>
+        <div className={classes.tags}>
+          <MdTag />
+          {props.tags.map((tag) => {
+            return <span>{tag}</span>;
+          })}
         </div>
 
         <div className={classes.like}>

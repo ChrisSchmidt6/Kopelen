@@ -65,10 +65,29 @@
 .like {
   font-size: 25px;
   float: right;
+  display: flex;
+  align-items: center;
 }
 
-.interact {
+.tags {
+  margin-top: 7px;
   float: left;
+  display: flex;
+  align-items: center;
+}
+
+.tags svg {
+  font-size: 20px;
+}
+
+.tags span {
+  font-size: 11pt;
+  cursor: pointer;
+  padding: 2px 5px;
+}
+
+.tags span:hover {
+  color: #fff;
 }
 
 .iconButton {
@@ -94,7 +113,6 @@
   float: right;
 }
 
-.interact svg,
 .like svg {
   cursor: pointer;
   overflow: hidden;
@@ -103,7 +121,6 @@
   margin-right: 5px;
 }
 
-.interact svg,
 .like svg,
 .deleteShortcut svg {
   cursor: pointer;

@@ -5,8 +5,7 @@ import ThreadInteractions from "./ThreadInteractions";
 import ThreadTags from "./ThreadTags";
 import ThreadTitle from "./ThreadTitle";
 
-import fullThreadClasses from "./FullThreads.module.css";
-import threadPreviewClasses from "./ThreadPreviews.module.css";
+import classes from "./ThreadContainer.module.css";
 
 const ThreadContainer: React.FC<{
   id: string;
@@ -23,11 +22,11 @@ const ThreadContainer: React.FC<{
   handleLike: () => void;
 }> = (props) => {
   // Styling based on view prop
-  const classes =
-    props.view === "full" ? fullThreadClasses : threadPreviewClasses;
+  const threadStyle =
+    props.view === "full" ? classes.threadFull : classes.threadPreview;
 
   return (
-    <div className={classes.thread}>
+    <div className={threadStyle}>
       <ThreadAuthor author={props.author} />
 
       <ThreadAction

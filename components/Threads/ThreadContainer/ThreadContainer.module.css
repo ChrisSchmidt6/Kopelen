@@ -1,0 +1,31 @@
+/* ### FULL THREAD STYLING ### */
+.threadFull {
+  padding: 10px 20px;
+}
+
+/* ### PREVIEW THREAD STYLING ### */
+.threadPreview {
+  max-height: 600px;
+  padding: 10px 35px 0 35px;
+  margin: 10px auto 0px auto;
+}
+
+/* ### STYLING FOR BOTH FULL AND PREVIEW THREADS ### */
+.threadFull,
+.threadPreview {
+  width: 100%;
+  color: #aaa;
+  overflow: hidden;
+  border-radius: 10px;
+  background: #434343;
+}
+
+@media screen and (max-width: 600px) {
+  .threadFull,
+  .threadPreview {
+    width: 100%;
+    border-radius: 0px;
+    padding: 0 15px;
+    padding-top: 10px;
+  }
+}

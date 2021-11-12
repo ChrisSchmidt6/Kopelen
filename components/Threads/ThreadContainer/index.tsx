@@ -45,7 +45,7 @@ const ThreadContainer: React.FC<{
         data={props.data}
       />
 
-      <ThreadTags className={classes.tags} tags={props.tags} />
+      <ThreadTags tags={props.tags} />
 
       <ThreadInteractions
         className={{

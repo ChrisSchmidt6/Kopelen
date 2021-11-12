@@ -1,11 +1,12 @@
 import { MdTag } from "react-icons/md";
 
+import classes from "./ThreadTags.module.css";
+
 const ThreadTags: React.FC<{
-  className: string;
   tags: string[];
 }> = (props) => {
   return (
-    <div className={props.className}>
+    <div className={classes.tags}>
       <MdTag />
       {props.tags.map((tag) => {
         return <span>{tag}</span>;

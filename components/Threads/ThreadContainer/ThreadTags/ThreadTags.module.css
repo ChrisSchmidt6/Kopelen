@@ -1,0 +1,20 @@
+.tags {
+  margin-top: 7px;
+  float: left;
+  display: flex;
+  align-items: center;
+}
+
+.tags svg {
+  font-size: 20px;
+}
+
+.tags span {
+  font-size: 11pt;
+  cursor: pointer;
+  padding: 2px 5px;
+}
+
+.tags span:hover {
+  color: #fff;
+}

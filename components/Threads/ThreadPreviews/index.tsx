@@ -7,6 +7,7 @@ import {
   MdEmojiEmotions,
   MdFlag,
   MdOutlinedFlag,
+  MdTag,
 } from "react-icons/md";
 
 import LoginModal from "../LoginModal";
@@ -21,6 +22,7 @@ const ThreadPreviews: React.FC<{
   id: string;
   type: string;
   data: string;
+  tags: string[];
 }> = (props) => {
   const [isLiked, setIsLiked] = useState(false);
   const [isFlagged, setIsFlagged] = useState(false);
@@ -113,6 +115,12 @@ const ThreadPreviews: React.FC<{
             <img src={props.data} alt="Thread image" />
           )}
           {props.type === "video" && handleVideo(props.data)}
+        </div>
+        <div className={classes.tags}>
+          <MdTag />
+          {props.tags.map((tag) => {
+            return <span>{tag}</span>;
+          })}
         </div>
 
         <div className={classes.interact}>

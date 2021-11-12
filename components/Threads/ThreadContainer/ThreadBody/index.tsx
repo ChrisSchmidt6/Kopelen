@@ -1,9 +1,16 @@
+import classes from "./ThreadBody.module.css";
+
 const ThreadBody: React.FC<{
   type: "text" | "image" | "video";
-  className: { body: string; video: string };
   title: string;
   data: string;
+  view: "full" | "preview";
 }> = (props) => {
+  const videoStyle =
+    props.view === "full" ? classes.videoFull : classes.videoPreview;
+  const bodyStyle =
+    props.view === "full" ? classes.bodyFull : classes.bodyPreview;
+
   const handleVideo = (link: string) => {
     const isYoutubeLink =
       /^(http(s)?:\/\/)?((w){3}.)?youtu(be|.be)?(\.com)?\/.+/; // Check if link is a youtube link
@@ -13,7 +20,7 @@ const ThreadBody: React.FC<{
       )![1];
       const url = `https://www.youtube.com/embed/${id}?rel=0`;
       return (
-        <div className={props.className.video}>
+        <div className={videoStyle}>
           <iframe
             title={props.title}
             src={url}
@@ -27,7 +34,7 @@ const ThreadBody: React.FC<{
   };
 
   return (
-    <div className={props.className.body}>
+    <div className={bodyStyle}>
       {props.type === "text" && <p>{props.data}</p>}
       {props.type === "image" && <img src={props.data} alt="Thread image" />}
       {props.type === "video" && handleVideo(props.data)}

@@ -1,0 +1,133 @@
+/* ### FULL THREAD STYLING ### */
+.bodyFull {
+  clear: both;
+  max-width: 100%;
+  border-bottom: 1px solid black;
+  display: block;
+}
+
+.bodyFull p {
+  font-size: 12pt;
+  text-rendering: none;
+  overflow-wrap: break-word;
+  margin: 0;
+  padding: 0 0 16px 0;
+}
+
+.bodyFull img {
+  display: block;
+  margin: auto;
+  max-height: 800px;
+  max-width: 100%;
+}
+
+.videoFull {
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  padding-top: 56.25%;
+}
+
+.videoFull iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+}
+
+@media screen and (max-width: 600px) {
+  .bodyFull {
+    border-radius: 0px;
+    width: 100%;
+    margin: 0;
+  }
+}
+
+/* ### PREVIEW THREAD STYLING ### */
+.bodyPreview {
+  overflow: hidden;
+  display: block;
+  margin: 0;
+  max-width: 100%;
+  max-height: 460px;
+  min-height: 25px;
+  background: rgba(0, 0, 0, 0.15);
+  border-radius: 15px;
+}
+
+.bodyPreview p {
+  font-size: 12pt;
+  text-rendering: none;
+  overflow-wrap: break-word;
+  padding: 0 15px;
+}
+
+.bodyPreview img {
+  display: block;
+  margin: auto;
+  max-height: 460px;
+  max-width: 100%;
+}
+
+.videoPreview {
+  background: #000;
+}
+
+.videoPreview iframe {
+  display: block;
+  margin: auto;
+  width: 720px; /* width of wrapper is 1050 px, diff = 0.685714286 */
+  height: 405px;
+}
+
+@media screen and (max-width: 1400px) {
+  .videoPreview {
+    background: transparent;
+  }
+
+  /* width of wrapper is 650 */
+  .videoPreview iframe {
+    width: 648px;
+    height: 365px;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .videoPreview {
+    background: transparent;
+  }
+
+  /* width of wrapper is 450 */
+  .videoPreview iframe {
+    width: 448px;
+    height: 252px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .bodyPreview {
+    border-radius: 0px;
+    width: 100%;
+    margin: 0;
+  }
+
+  .videoPreview {
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    padding-top: 56.25%;
+  }
+
+  .videoPreview iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+  }
+}

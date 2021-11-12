@@ -40,9 +40,9 @@ const ThreadContainer: React.FC<{
 
       <ThreadBody
         type={props.type}
-        className={{ body: classes.containerBody, video: classes.video }}
         title={props.title}
         data={props.data}
+        view={props.view}
       />
 
       <ThreadTags tags={props.tags} />

@@ -52,12 +52,12 @@
   color: #fff;
 }
 
-.deleteShortcut {
-  color: rgba(255, 255, 255, 0.3);
+.action {
+  color: #7b7b7b;
 }
 
 .interact,
-.deleteShortcut {
+.action {
   font-size: 25px;
   float: right;
 }
@@ -70,7 +70,7 @@
 }
 
 .interact svg,
-.deleteShortcut svg {
+.action svg {
   cursor: pointer;
 }
 
@@ -78,7 +78,7 @@
   color: #9c9c9c;
 }
 
-.deleteShortcut svg:hover {
+.action svg:hover {
   color: #ca2850;
 }
 

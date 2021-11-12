@@ -108,7 +108,7 @@ const FullThreads: React.FC<{
           Thread by: <u>{props.author}</u>
         </div>
 
-        <div className={classes.deleteShortcut} onClick={handleFlag}>
+        <div className={classes.action} onClick={handleFlag}>
           {isModerator ? <MdDeleteForever /> : flagIcon}
         </div>
 

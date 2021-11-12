@@ -101,11 +101,11 @@
 }
 
 .like svg,
-.deleteShortcut svg {
+.action svg {
   cursor: pointer;
 }
 
-.deleteShortcut svg:hover {
+.action svg:hover {
   color: #ca2850;
 }
 
@@ -115,10 +115,10 @@
   color: #1f8cd4;
 }
 
-.deleteShortcut {
+.action {
   float: right;
   font-size: 25px;
-  color: rgba(255, 255, 255, 0.3);
+  color: #7b7b7b;
 }
 
 .flagged {

@@ -4,7 +4,6 @@ import { MdComment, MdEmojiEmotions } from "react-icons/md";
 import classes from "./ThreadInteractions.module.css";
 
 const ThreadInteractions: React.FC<{
-  className: { interact: string; iconButton: string; active: string };
   isLiked: boolean;
   handleLike: () => void;
   view: "full" | "preview";

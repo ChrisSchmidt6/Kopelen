@@ -48,11 +48,6 @@ const ThreadContainer: React.FC<{
       <ThreadTags tags={props.tags} />
 
       <ThreadInteractions
-        className={{
-          interact: classes.interact,
-          iconButton: classes.iconButton,
-          active: classes.active,
-        }}
         isLiked={props.isLiked}
         handleLike={props.handleLike}
         view={props.view}

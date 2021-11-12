@@ -1,0 +1,17 @@
+.action {
+  float: right;
+  font-size: 25px;
+  color: #7b7b7b;
+}
+
+.action svg {
+  cursor: pointer;
+}
+
+.action svg:hover {
+  color: #ca2850;
+}
+
+.flagged {
+  color: #ca2850;
+}

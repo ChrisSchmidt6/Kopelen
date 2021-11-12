@@ -100,29 +100,14 @@
   margin-right: 5px;
 }
 
-.interact svg,
-.action svg {
+.interact svg {
   cursor: pointer;
-}
-
-.action svg:hover {
-  color: #ca2850;
 }
 
 .interact:hover svg,
 .active,
 .active:hover {
   color: #1f8cd4;
-}
-
-.action {
-  float: right;
-  font-size: 25px;
-  color: #7b7b7b;
-}
-
-.flagged {
-  color: #ca2850;
 }
 
 .tags {

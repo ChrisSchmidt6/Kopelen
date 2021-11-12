@@ -32,7 +32,6 @@ const ThreadContainer: React.FC<{
 
       <ThreadAction
         isFlagged={props.isFlagged}
-        className={{ action: classes.action, flagged: classes.flagged }}
         handleFlag={props.handleFlag}
         isModerator={props.isModerator}
       />

@@ -11,15 +11,13 @@
 }
 
 .thread h4,
-.author,
 .containerBody {
   max-width: 100%;
   margin: 0;
   display: block;
 }
 
-.thread h4,
-.author {
+.thread h4 {
   max-height: 1.2em;
   overflow: hidden;
   white-space: nowrap;
@@ -35,16 +33,6 @@
 
 .thread h4:hover {
   color: #fff;
-}
-
-.author {
-  margin-top: 5px;
-  font-size: 10pt;
-  float: left;
-}
-
-.author::after {
-  clear: both;
 }
 
 .interact {

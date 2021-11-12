@@ -1,0 +1,9 @@
+.author {
+  margin-top: 5px;
+  font-size: 10pt;
+  float: left;
+  max-height: 1.2em;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}

@@ -28,7 +28,7 @@ const ThreadContainer: React.FC<{
 
   return (
     <div className={classes.thread}>
-      <ThreadAuthor className={classes.author} author={props.author} />
+      <ThreadAuthor author={props.author} />
 
       <ThreadAction
         isFlagged={props.isFlagged}

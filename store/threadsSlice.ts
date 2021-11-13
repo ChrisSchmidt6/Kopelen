@@ -9,9 +9,21 @@ export type ThreadType = {
   tags: string[];
 };
 
+export type CommentType = {
+  id: string;
+  author: string;
+  data: string;
+  parent: string;
+  thread: string;
+};
+
 type ThreadsState = {
   threads: ThreadType[];
+  comments: CommentType[];
 };
+
+// import dummy comments for now
+import dummyComments from "./tempCommentDummy";
 
 const initialState: ThreadsState = {
   threads: [
@@ -40,6 +52,7 @@ const initialState: ThreadsState = {
       tags: ["Video", "Malfoy", "Example", "B", "C"],
     },
   ],
+  comments: dummyComments,
 };
 
 export const threadsSlice = createSlice({

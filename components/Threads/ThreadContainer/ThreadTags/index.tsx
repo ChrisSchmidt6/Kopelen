@@ -9,7 +9,7 @@ const ThreadTags: React.FC<{
     <div className={classes.tags}>
       <MdTag />
       {props.tags.map((tag) => {
-        return <span>{tag}</span>;
+        return <span key={tag}>{tag}</span>;
       })}
     </div>
   );

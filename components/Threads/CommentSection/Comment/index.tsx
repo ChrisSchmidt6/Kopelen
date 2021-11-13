@@ -11,8 +11,14 @@ import AuthContext from "store/auth-context";
 import classes from "./Comment.module.css";
 
 const Comment: React.FC<{
+  id: string;
   author: string;
-  content: string;
+  data: string;
+  isReply: boolean;
+  parent?: {
+    id: string;
+    data: string;
+  };
   handleModalOpen: () => void;
 }> = (props) => {
   const [isLiked, setIsLiked] = useState(false);
@@ -41,7 +47,7 @@ const Comment: React.FC<{
     }
   };
 
-  const likeClasses = `${classes.blueHover}${
+  const likeClasses = `${classes.interact}${
     isLiked ? ` ${classes.active}` : ""
   }`;
   const flagIcon = isFlagged ? (
@@ -51,12 +57,21 @@ const Comment: React.FC<{
   );
 
   return (
-    <div className={classes.comment}>
-      <div className={classes.author}>{props.author}</div>
+    <div id={props.id} className={classes.comment}>
+      {props.isReply && (
+        <a href={`#${props.parent!.id}`} className={classes.quote}>
+          &gt; {props.parent!.data}
+        </a>
+      )}
+
       <div className={classes.action} onClick={handleFlag}>
         {isModerator ? <MdDeleteForever /> : flagIcon}
       </div>
-      <div className={classes.content}>{props.content}</div>
+
+      <div className={classes.author}>{props.author}</div>
+
+      <div className={classes.content}>{props.data}</div>
+
       <div className={classes.interact}>
         <MdEmojiEmotions className={likeClasses} onClick={handleLike} />
       </div>

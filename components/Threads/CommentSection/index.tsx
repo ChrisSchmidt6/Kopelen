@@ -1,29 +1,42 @@
+import { useAppSelector } from "hooks/reduxHooks";
+
 import Comment from "./Comment";
 
 import classes from "./CommentSection.module.css";
 
-const DUMMY_COMMENTS = [
-  {
-    author: "cupe",
-    content: "wow! so rad!",
-    id: "c1",
-  },
-  {
-    author: "potter",
-    content: "wingardium leviosa",
-    id: "c2",
-  },
-  {
-    author: "chris",
-    content: "ipsum something or other",
-    id: "c3",
-  },
-];
-
 const CommentSection: React.FC<{
+  threadId: string;
   className: string;
   handleModalOpen: () => void;
 }> = (props) => {
+  const allComments = useAppSelector((state) => state.threadsSlice.comments);
+  const comments = allComments.filter(
+    (comment) => comment.thread === props.threadId
+  );
+
+  const commentElements = comments.map((comment) => {
+    const isReply = comment.parent !== "thread";
+
+    let parentDetails;
+    if (isReply) {
+      const parentComment = comments.filter(
+        (data) => data.id === comment.parent
+      )[0];
+      parentDetails = { id: parentComment.id, data: parentComment.data };
+    }
+
+    const commentProps = {
+      key: comment.id,
+      id: comment.id,
+      author: comment.author,
+      data: comment.data,
+      isReply,
+      parent: parentDetails,
+      handleModalOpen: props.handleModalOpen,
+    };
+    return <Comment {...commentProps} />;
+  });
+
   return (
     <div className={props.className}>
       <form className={classes.addComment} onClick={props.handleModalOpen}>
@@ -38,13 +51,7 @@ const CommentSection: React.FC<{
           />
         </div>
       </form>
-      {DUMMY_COMMENTS.map((comment) => (
-        <Comment
-          key={comment.id}
-          {...comment}
-          handleModalOpen={props.handleModalOpen}
-        />
-      ))}
+      {commentElements}
     </div>
   );
 };

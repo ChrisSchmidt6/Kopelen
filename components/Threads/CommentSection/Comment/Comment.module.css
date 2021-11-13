@@ -12,29 +12,38 @@
 }
 
 .author {
+  clear: left;
   font-size: 12pt;
   font-weight: bold;
   display: block;
-  float: left;
   color: #dadada;
 }
 
-.action {
-  float: right;
-}
-
 .content {
-  clear: both;
   display: block;
   margin: 3px 0;
 }
 
-.interact {
-  float: right;
+.quote {
+  display: block;
+  float: left;
+  font-size: 10pt;
+  margin: 0 0 5px 0;
+  color: #999999;
+  white-space: nowrap;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.quote:hover {
+  color: #c7c7c7;
 }
 
 .action,
 .interact {
+  float: right;
+  clear: left;
   font-size: 20px;
   color: #7b7b7b;
   cursor: pointer;
@@ -44,8 +53,8 @@
   color: #ca2850;
 }
 
-.blueHover:hover,
-.blueHover.active {
+.interact:hover,
+.interact.active {
   color: #1f8cd4;
 }
 

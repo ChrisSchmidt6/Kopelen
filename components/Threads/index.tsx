@@ -89,6 +89,7 @@ const Threads: React.FC<{
 
       {props.view === "full" && (
         <CommentSection
+          threadId={props.id}
           className={classes.comments}
           handleModalOpen={openLoginModal}
         />

@@ -1,3 +1,8 @@
-.loginModal button {
+.buttonContainer {
+  margin: auto;
+}
+
+.buttonContainer button {
+  display: inline-flex;
   margin: 5px;
 }

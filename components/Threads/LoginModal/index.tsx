@@ -13,7 +13,7 @@ const LoginModal: React.FC<{
       handleClose={props.handleClose}
       header={<h1>You must be signed in to perform that action:</h1>}
       main={
-        <>
+        <div className={classes.buttonContainer}>
           <StyledButton
             onClick={() => {
               props.redirectWithOrigin("login");
@@ -28,7 +28,7 @@ const LoginModal: React.FC<{
           >
             Register
           </StyledButton>
-        </>
+        </div>
       }
     />
   );

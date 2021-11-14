@@ -1,74 +1,23 @@
-/* ### FULL THREAD STYLING ### */
-.interactFull {
+.interact {
   font-size: 25px;
   float: right;
+  margin: 8px 0 0;
+  color: #7b7b7b;
   display: flex;
   align-items: center;
 }
 
-.interactFull svg {
+.interact svg {
   cursor: pointer;
-  overflow: hidden;
-  cursor: pointer;
-  font-size: 25px;
   margin-right: 5px;
 }
 
-.interactFull:hover svg {
-  color: #1f8cd4;
-}
-
-.iconButton {
-  text-align: center;
-  font-size: 15pt;
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-  border-bottom-left-radius: 5px;
-  border-bottom-right-radius: 5px;
-  padding: 5px 10px 5px 5px;
-  color: rgba(255, 255, 255, 0.3);
-  user-select: none;
-}
-
-.iconButton:hover {
-  background-color: rgba(0, 0, 0, 0.2);
-  color: rgba(255, 255, 255, 0.6);
+.interact svg:hover {
+  color: #9c9c9c;
 }
 
 .active,
-.active:hover {
+.likeIcon.active:hover,
+.likeIcon:hover {
   color: #1f8cd4;
-}
-
-/* ### PREVIEW THREAD STYLING ### */
-.interactPreview {
-  margin: 5px 0;
-  color: #fff;
-}
-
-.interactPreview {
-  font-size: 25px;
-  float: right;
-}
-
-.interactPreview svg {
-  cursor: pointer;
-  overflow: hidden;
-  cursor: pointer;
-  margin-left: 5px;
-}
-
-.interactPreview svg {
-  cursor: pointer;
-}
-
-.interactPreview svg:hover,
-.interactPreview svg.active {
-  color: #1f8cd4;
-}
-
-.interactPreview svg:last-of-type:hover {
-  color: #9c9c9c;
 }

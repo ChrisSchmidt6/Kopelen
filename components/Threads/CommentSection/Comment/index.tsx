@@ -47,9 +47,9 @@ const Comment: React.FC<{
     }
   };
 
-  const likeClasses = `${classes.interact}${
-    isLiked ? ` ${classes.active}` : ""
-  }`;
+  let likeClasses = classes.likeIcon;
+  isLiked ? likeClasses += ` ${classes.active}` : null;
+  
   const flagIcon = isFlagged ? (
     <MdFlag className={classes.flagged} />
   ) : (

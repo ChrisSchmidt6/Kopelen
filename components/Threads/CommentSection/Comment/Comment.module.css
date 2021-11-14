@@ -45,18 +45,24 @@
   clear: left;
   font-size: 20px;
   color: #7b7b7b;
+}
+
+.action svg,
+.interact svg {
   cursor: pointer;
 }
 
-.action svg:hover {
-  color: #ca2850;
+.interact svg:hover {
+  color: #9c9c9c;
 }
 
-.interact:hover,
-.interact.active {
+.active,
+.likeIcon.active:hover,
+.likeIcon:hover {
   color: #1f8cd4;
 }
 
+.action svg:hover,
 .flagged {
   color: #ca2850;
 }

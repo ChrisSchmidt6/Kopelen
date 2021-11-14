@@ -1,4 +1,4 @@
-import React, { cloneElement, MouseEvent, ReactElement, useState } from "react";
+import React, { cloneElement, ReactElement, useState } from "react";
 
 import Menu from "./Menu";
 

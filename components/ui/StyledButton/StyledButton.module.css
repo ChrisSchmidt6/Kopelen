@@ -1,7 +1,9 @@
 .styledButton {
   border: none;
   border-radius: 25px;
-  background: #590075;
+  background-color: #590075;
+  display: flex;
+  align-items: center;
   color: #fff;
   width: fit-content;
   font-size: 14pt;
@@ -9,6 +11,10 @@
   user-select: none;
   cursor: pointer;
   transition: box-shadow 0.1s;
+}
+
+.styledButton svg {
+  margin-right: 5px;
 }
 
 .styledButton:hover {

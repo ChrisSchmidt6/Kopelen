@@ -1,5 +1,8 @@
 .button {
-    background: none;
+    background-color: #454545;
+    display: inline-flex;
+    align-items: center;
+    border-radius: 10px;
     cursor: default;
     border: none;
     margin: 0 0 0 0.2em;
@@ -7,19 +10,17 @@
 }
 
 .button svg {
-    background-color: #454545;
     padding: 6px;
     color: #fff;
     font-size: 44px;
     cursor: pointer;
-    border-radius: 10px;
     transition: box-shadow 0.1s;
 }
 
-.button svg:hover {
+.button:hover {
     box-shadow: inset 0 0 0 50px rgba(0, 0, 0, 0.2);
 }
 
-.button svg:active {
+.button:active {
     box-shadow: inset 0 0 0 50px rgba(0, 0, 0, 0.3);
 }

@@ -32,7 +32,9 @@ const Login = () => {
       <div className={classes.actionContainer}>
         <h2>You are already signed in</h2>
         <p>Did you mean to ...</p>
-        <StyledButton onClick={authCtx.onLogout}>Sign Out</StyledButton>
+        <StyledButton size="large" onClick={authCtx.onLogout}>
+          Sign Out
+        </StyledButton>
       </div>
     );
   }
@@ -53,7 +55,9 @@ const Login = () => {
               const origin = router.query.origin?.toString();
               if (origin) {
                 // Assuming the origin is stored with commas replacing the slashes and replace caret with pound
-                const originURL = `/${origin.replaceAll(",", "/").replace("^", "#")}`;
+                const originURL = `/${origin
+                  .replaceAll(",", "/")
+                  .replace("^", "#")}`;
                 router.push(originURL);
               } else {
                 router.push("/");

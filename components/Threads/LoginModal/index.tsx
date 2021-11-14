@@ -15,6 +15,7 @@ const LoginModal: React.FC<{
       main={
         <div className={classes.buttonContainer}>
           <StyledButton
+          size="large"
             onClick={() => {
               props.redirectWithOrigin("login");
             }}
@@ -22,6 +23,7 @@ const LoginModal: React.FC<{
             Sign In
           </StyledButton>
           <StyledButton
+          size="large"
             onClick={() => {
               props.redirectWithOrigin("register");
             }}

@@ -23,6 +23,10 @@
   text-align: center;
 }
 
+.actionContainer button {
+  margin: auto;
+}
+
 .formButtons {
   margin-top: 5px;
   float: right;

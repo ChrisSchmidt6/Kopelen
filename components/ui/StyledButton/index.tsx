@@ -6,7 +6,7 @@ type sizes = "large" | "medium" | "small";
 
 const StyledButton: React.FC<{
   children: any;
-  onClick?: () => void;
+  onClick?: (...args: any[]) => any;
   style?: styles;
   size?: sizes;
 }> = (props) => {

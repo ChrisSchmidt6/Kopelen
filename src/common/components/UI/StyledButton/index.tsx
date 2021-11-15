@@ -6,6 +6,7 @@ type sizes = "large" | "medium" | "small";
 
 const StyledButton: React.FC<{
   children: any;
+  type?: "button" | "submit" | "reset";
   onClick?: (...args: any[]) => any;
   style?: styles;
   size?: sizes;
@@ -18,6 +19,7 @@ const StyledButton: React.FC<{
 
   return (
     <button
+      type={props.type}
       className={`${classes.styledButton} ${classes[style]} ${classes[size]}`}
       disabled={props.style === "disabled"}
       onClick={props.onClick}

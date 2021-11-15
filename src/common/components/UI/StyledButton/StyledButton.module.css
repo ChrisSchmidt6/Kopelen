@@ -22,14 +22,6 @@
   box-shadow: inset 0 0 0 50px rgba(0, 0, 0, 0.15);
 }
 
-.styledButton.clear:hover {
-  box-shadow: inset 0 0 0 2px #590075, inset 0 0 0 50px rgba(0, 0, 0, 0.1);
-}
-
-.styledButton.clear:active {
-  box-shadow: inset 0 0 0 2px #590075, inset 0 0 0 50px rgba(0, 0, 0, 0.15);
-}
-
 .primary {
   background-color: #590075;
 }
@@ -40,19 +32,18 @@
 
 .clear {
   background-color: transparent;
-  box-shadow: inset 0 0 0 2px #590075;
 }
 
 .disabled {
-  background-color: transparent;
-  color: #ccc;
+  background-color: #434343;
+  color: rgb(180, 180, 180);
   cursor: not-allowed;
 }
 
 .disabled,
 .disabled:active,
 .disabled:hover {
-  box-shadow: inset 0 0 0 50px rgba(0, 0, 0, 0.15);
+  box-shadow: none;
 }
 
 .large {

@@ -1,7 +1,7 @@
 import { GetServerSideProps } from "next";
-import { useAppSelector } from "hooks/reduxHooks";
+import { useAppSelector } from "src/common/hooks/reduxHooks";
 
-import Threads from "components/Threads";
+import Threads from "src/features/threads/components/Thread";
 
 const Thread: React.FC<{ threadId: string }> = (props) => {
   const threads = useAppSelector((state) => state.threadsSlice.threads);

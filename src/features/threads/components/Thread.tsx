@@ -5,7 +5,7 @@ import CommentSection from "./CommentSection";
 import LoginModal from "./LoginModal";
 import ThreadContainer from "./ThreadContainer";
 
-import AuthContext from "store/auth-context";
+import AuthContext from "src/common/store/auth-context";
 
 import classes from "./Threads.module.css";
 

@@ -2,8 +2,8 @@ import { ReactElement } from "react";
 import { useRouter } from "next/router";
 import { MdAccountCircle, MdForum, MdSettings } from "react-icons/md";
 
-import ToggleButton from "components/UI/ToggleButton";
-import IconButton from "components/UI/IconButton";
+import ToggleButton from "src/common/components/UI/ToggleButton";
+import IconButton from "src/common/components/UI/IconButton";
 
 import classes from "./NavigationButtons.module.css";
 

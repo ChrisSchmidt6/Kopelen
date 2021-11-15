@@ -6,7 +6,7 @@ import {
   MdOutlinedFlag,
 } from "react-icons/md";
 
-import AuthContext from "store/auth-context";
+import AuthContext from "src/common/store/auth-context";
 
 import classes from "./Comment.module.css";
 

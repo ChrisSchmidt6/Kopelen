@@ -1,10 +1,10 @@
 import { useRouter } from "next/router";
 import { MdPostAdd } from "react-icons/md";
-import { useAppSelector } from "hooks/reduxHooks";
+import { useAppSelector } from "src/common/hooks/reduxHooks";
 
-import Threads from "components/Threads";
-import ToggleButton from "components/UI/ToggleButton";
-import StyledButton from "components/UI/StyledButton";
+import Threads from "src/features/threads/components/Thread";
+import ToggleButton from "src/common/components/UI/ToggleButton";
+import StyledButton from "src/common/components/UI/StyledButton";
 
 import classes from "./Home.module.css";
 

@@ -1,5 +1,5 @@
-import Modal from "components/UI/Modal";
-import StyledButton from "components/UI/StyledButton";
+import Modal from "src/common/components/UI/Modal";
+import StyledButton from "src/common/components/UI/StyledButton";
 
 import classes from "./LoginModal.module.css";
 

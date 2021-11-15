@@ -1,18 +1,20 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { useRouter } from "next/router";
 import { Field, Formik, Form } from "formik";
 import { object, string } from "yup";
 
-import StyledInput from "components/UI/StyledInput";
-import StyledButton from "components/UI/StyledButton";
+import StyledInput from "src/common/components/UI/StyledInput";
+import StyledButton from "src/common/components/UI/StyledButton";
 
-import AuthContext from "store/auth-context";
+import AuthContext from "src/common/store/auth-context";
 
 import classes from "./Create.module.css";
 
 const initialValues = {
   title: "",
   textBody: "",
+  link: "",
+  tags: []
 };
 
 const validationSchema = object().shape({
@@ -20,9 +22,14 @@ const validationSchema = object().shape({
     .required("Title is a required field.")
     .min(5, "Your title must contain at least 5 characters")
     .max(100, "Your title can contain at most 100 characters"),
+  textBody: string().required("Conent is a required field."),
+  link: string().required("")
 });
 
+type threadSelection = "text" | "link" | "upload";
+
 const Create = () => {
+  const [threadType, setThreadType] = useState<threadSelection>("text");
   const authCtx = useContext(AuthContext);
   const router = useRouter();
 
@@ -41,10 +48,23 @@ const Create = () => {
     );
   }
 
+  const changeThreadType = (type: threadSelection) => {
+    setThreadType(type);
+  };
+
   return (
     <>
       <div className={classes.container}>
         <h1>Create thread</h1>
+        <div className={classes.buttonGroup}>
+          <StyledButton onClick={() => changeThreadType("text")}>
+            Text
+          </StyledButton>
+          <StyledButton onClick={() => changeThreadType("link")} style="clear">
+            Link
+          </StyledButton>
+          <StyledButton style="disabled">Upload</StyledButton>
+        </div>
         <Formik
           initialValues={initialValues}
           validationSchema={validationSchema}
@@ -67,11 +87,11 @@ const Create = () => {
                 type="text"
                 value={values.title || ""}
               />
-              <Field
-                as="textarea"
-                name="textBody"
-                placeholder="Enter content..."
-              />
+
+              {threadType === "text" && <Field as="textarea" name="textBody" value={values.textBody || ""} placeholder="Enter content..." />}
+
+              {threadType === "link" && <StyledInput name="link" label="Link" type="text" value={values.link || ""} />}
+
               <div className={classes.formButtons}>
                 <input type="reset" value="Reset" />
                 <input

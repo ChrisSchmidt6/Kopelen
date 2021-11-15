@@ -4,10 +4,10 @@ import { AppProps } from "next/app";
 import Head from "next/head";
 import { Provider } from "react-redux";
 
-import Navigation from "components/Navigation";
+import Navigation from "src/features/navigation/components/Navigation";
 
-import { store } from "store";
-import AuthContext, { AuthContextProvider } from "store/auth-context";
+import { store } from "src/common/store";
+import AuthContext, { AuthContextProvider } from "src/common/store/auth-context";
 
 import "styles/globals.css";
 

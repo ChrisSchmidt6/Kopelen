@@ -1,4 +1,4 @@
-import { useAppSelector } from "hooks/reduxHooks";
+import { useAppSelector } from "src/common/hooks/reduxHooks";
 
 import Comment from "./Comment";
 

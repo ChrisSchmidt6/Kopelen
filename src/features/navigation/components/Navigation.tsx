@@ -5,7 +5,7 @@ import { MdMenu } from "react-icons/md";
 import NavigationButtons from "./NavigationButtons";
 import NavigationDrawer from "./NavigationDrawer";
 
-import AuthContext from "store/auth-context";
+import AuthContext from "src/common/store/auth-context";
 
 import classes from "./Navigation.module.css";
 

@@ -1,0 +1,47 @@
+.container {
+  width: 100%;
+  margin: 5px 0 0;
+}
+
+.counter {
+  margin: auto;
+  width: fit-content;
+  font-size: 14pt;
+}
+
+.container input {
+  border: none;
+  padding: 5px;
+  margin: 0 10px 0 0;
+  width: 85%;
+  color: #fff;
+  outline: none;
+  font-size: 12pt;
+}
+
+.tags {
+  margin-top: 10px;
+}
+
+.tags span {
+  display: inline-flex;
+  align-items: center;
+  padding: 5px 10px;
+  margin: 2px 2px 0;
+  cursor: pointer;
+  max-width: 100%;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.container input,
+.tags span {
+  background-color: #434343;
+  border-radius: 10px;
+}
+
+.tags span svg {
+  color: #ca2850;
+  font-size: 14pt;
+  margin: 0 0 0 -5px;
+}

@@ -7,7 +7,9 @@ import { Provider } from "react-redux";
 import Navigation from "src/features/navigation/components/Navigation";
 
 import { store } from "src/common/store";
-import AuthContext, { AuthContextProvider } from "src/common/store/auth-context";
+import AuthContext, {
+  AuthContextProvider,
+} from "src/common/store/auth-context";
 
 import "styles/globals.css";
 
@@ -21,7 +23,7 @@ const Kopelen: React.FC<{
     if (authToken) {
       authCtx.onLogin("autologin", "12345", true);
     }
-  });
+  }, [true]); // Only run once by passing constant value
 
   const Component = props.required.Component;
   const pageProps = props.required.pageProps;

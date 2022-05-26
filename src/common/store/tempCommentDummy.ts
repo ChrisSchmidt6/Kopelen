@@ -3,8 +3,8 @@ import { CommentType } from "./threadsSlice";
 const dummyComments: CommentType[] = [
     {
       id: "C1",
-      author: "chris",
-      data: "Great image, cupertino!",
+      author: "billy",
+      data: "Great image, bobby!",
       parent: "thread",
       thread: "T2",
     },
@@ -17,14 +17,14 @@ const dummyComments: CommentType[] = [
     },
     {
       id: "C3",
-      author: "cupe",
+      author: "bob",
       data: "We'll see about that...",
       parent: "C2",
       thread: "T2",
     },
     {
       id: "C4",
-      author: "cupe",
+      author: "bob",
       data: "What is this gibberish!?",
       parent: "thread",
       thread: "T1",
@@ -38,7 +38,7 @@ const dummyComments: CommentType[] = [
     },
     {
       id: "C6",
-      author: "chris",
+      author: "billy",
       data: "Why thank you.",
       parent: "C5",
       thread: "T1",
@@ -52,14 +52,14 @@ const dummyComments: CommentType[] = [
     },
     {
       id: "C8",
-      author: "chris",
+      author: "billy",
       data: "Are you talking to yourself..?",
       parent: "C7",
       thread: "T3",
     },
     {
       id: "C9",
-      author: "cupe",
+      author: "bob",
       data: "Let the man speak!",
       parent: "C8",
       thread: "T3",

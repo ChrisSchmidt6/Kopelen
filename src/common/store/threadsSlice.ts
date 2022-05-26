@@ -30,7 +30,7 @@ const initialState: ThreadsState = {
     {
       id: "T1",
       type: "text",
-      author: "chris",
+      author: "billy",
       title: "Text Thread Preview Example",
       data: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam vestibulum ligula et nunc tincidunt, a egestas lorem laoreet. Vestibulum justo ex, ultricies vel luctus eu, vulputate id lorem. Vivamus posuere venenatis dolor quis condimentum. Fusce et mi suscipit, tincidunt urna ac, egestas velit. Praesent accumsan sollicitudin facilisis. Morbi pellentesque arcu id massa viverra molestie eget sit amet velit. Vestibulum suscipit arcu justo, ut mattis arcu aliquam in. Morbi est arcu, convallis at tempus id, pharetra eu purus.",
       tags: ["Text", "Ipsum", "Example", "A", "B"],
@@ -38,7 +38,7 @@ const initialState: ThreadsState = {
     {
       id: "T2",
       type: "image",
-      author: "cupe",
+      author: "bob",
       title: "Image Thread Preview Example",
       data: "https://www.gannett-cdn.com/presto/2020/04/16/USAT/5b7ef814-a04d-44c8-86ef-1d47c798a1f1-Golds_gym_CharlesTown.jpg",
       tags: ["Image", "Gym", "Example", "A", "C"],

@@ -18,7 +18,7 @@ const Profile = () => {
   if (!authCtx.isLoggedIn) {
     return (
       <div className={classes.actionContainer}>
-        <h2>You must signed in to view your profile</h2>
+        <h2>You must be signed in to view your profile</h2>
         <StyledButton size="large" onClick={handleRedirectWithOrigin}>
           Sign In
         </StyledButton>

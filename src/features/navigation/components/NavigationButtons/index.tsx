@@ -22,7 +22,7 @@ const NavigationButtons: React.FC<{
   if (props.isLoggedIn) {
     accountOptions = (
       <>
-        <li>Profile</li>
+        <li onClick={() => handleRedirect("/profile")}>Profile</li>
         <li onClick={props.onLogout}>Sign Out</li>
       </>
     );

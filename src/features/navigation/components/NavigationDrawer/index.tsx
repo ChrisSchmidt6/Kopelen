@@ -19,7 +19,7 @@ const NavigationDrawer: React.FC<{
   const handleLogout = () => {
     props.onLogout();
     props.closeMenu();
-  }
+  };
 
   const updatedClasses = `${classes.menu}${
     props.open ? ` ${classes.active}` : ""
@@ -30,7 +30,7 @@ const NavigationDrawer: React.FC<{
   if (props.isLoggedIn) {
     accountOptions = (
       <>
-        <li>Profile</li>
+        <li onClick={() => handleRedirect("/profile")}>Profile</li>
         <li onClick={handleLogout}>Sign Out</li>
       </>
     );

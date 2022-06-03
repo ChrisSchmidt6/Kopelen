@@ -28,9 +28,20 @@ const Profile = () => {
 
   return (
     <>
-        <div>
-            {authCtx.username}
+      <div className={classes.container}>
+        <h3>{authCtx.username}</h3>
+        <div className={classes.containerBody}>
+          <ul className={classes.info}>
+            <li>Email: placeholder</li>
+            <li>Authenticated: boolean</li>
+            <li>Date joined: Date</li>
+          </ul>
+          <div className={classes.options}>
+            <a>My Threads</a>
+            <a>My Comments</a>
+          </div>
         </div>
+      </div>
     </>
   );
 };

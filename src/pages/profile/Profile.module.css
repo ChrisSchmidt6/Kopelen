@@ -1,0 +1,26 @@
+.container {
+  border-radius: 10px;
+  background: #434343;
+  padding: 10px 0;
+}
+
+.container h3 {
+  text-align: center;
+}
+
+.containerBody {
+    margin: auto;
+    width: 400px;
+    font-size: 15pt;
+    color: #aaa;
+}
+
+.info {
+    padding: 0px;
+    list-style: none;
+    text-align: left;
+}
+
+.options a {
+    display: block;
+}

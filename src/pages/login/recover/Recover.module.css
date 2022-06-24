@@ -1,5 +1,4 @@
-.container,
-.actionContainer {
+.container {
   border-radius: 10px;
   background: #434343;
   padding: 10px 0;
@@ -17,18 +16,6 @@
   overflow: auto;
   padding: 20px;
   background: #545454;
-}
-
-.container form small a:hover {
-  color: #ccc;
-}
-
-.actionContainer {
-  text-align: center;
-}
-
-.actionContainer button {
-  margin: auto;
 }
 
 .formButtons {
@@ -72,8 +59,7 @@
 }
 
 @media screen and (max-width: 600px) {
-  .container,
-  .actionContainer {
+  .container {
     border-radius: 0px;
   }
 }

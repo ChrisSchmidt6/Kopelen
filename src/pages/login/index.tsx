@@ -82,6 +82,17 @@ const Login = () => {
                 type="password"
                 value={values.password || ""}
               />
+              <small>
+                Forgot password? Recover it{" "}
+                <a
+                  href="#"
+                  onClick={() => {
+                    router.push("/login/recover");
+                  }}
+                >
+                  here.
+                </a>
+              </small>
               <div className={classes.formButtons}>
                 <input type="reset" value="Reset" />
                 <input

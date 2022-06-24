@@ -9,18 +9,24 @@
 }
 
 .containerBody {
-    margin: auto;
-    width: 400px;
-    font-size: 15pt;
-    color: #aaa;
+  margin: auto;
+  width: 400px;
+  font-size: 15pt;
+  color: #aaa;
 }
 
 .info {
-    padding: 0px;
-    list-style: none;
-    text-align: left;
+  padding: 0px;
+  list-style: none;
+  text-align: left;
 }
 
 .options a {
-    display: block;
+  display: block;
+}
+
+@media screen and (max-width: 600px) {
+  .container {
+    border-radius: 0px;
+  }
 }

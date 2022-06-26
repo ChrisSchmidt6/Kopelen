@@ -19,7 +19,56 @@
   background: #545454;
 }
 
-.container form small a:hover {
+.checkField input[type="checkbox"] {
+  width: 1.5rem;
+  height: 1.5rem;
+  vertical-align: middle;
+  -webkit-appearance: none;
+  background: none;
+  border: 0;
+  outline: 0;
+  flex-grow: 0;
+  border-radius: 50%;
+  background-color: #ffffff;
+  color: rgb(30, 144, 255);
+  cursor: pointer;
+}
+
+.checkField input[type="checkbox"]:checked {
+  background-color: #590075;
+  box-shadow: 0px 0px 3px -1px #000 inset;
+}
+
+.checkField input[type="checkbox"]::before {
+  content: "";
+  color: transparent;
+  display: block;
+  width: inherit;
+  height: inherit;
+  border-radius: inherit;
+  border: 0;
+  background-color: transparent;
+  background-size: contain;
+}
+
+.checkField {
+  display: flex;
+  align-items: center;
+}
+
+.checkField label {
+  margin-left: 5px;
+  font-size: 15pt;
+}
+
+.container small {
+  margin-top: 15px;
+  display: block;
+  margin: auto;
+  width: fit-content;
+}
+
+.container small a:hover {
   color: #ccc;
 }
 
@@ -32,8 +81,8 @@
 }
 
 .formButtons {
-  margin-top: 5px;
-  float: right;
+  display: flex;
+  justify-content: end;
 }
 
 .formButtons input {

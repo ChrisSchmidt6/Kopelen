@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import router from "next/router";
-import { Formik, Form } from "formik";
+import { Formik, Form, Field } from "formik";
 import { object, string } from "yup";
 
 import StyledInput from "src/common/components/UI/StyledInput";
@@ -13,6 +13,7 @@ import classes from "./Login.module.css";
 const initialValues = {
   email: "",
   password: "",
+  checkbox: false,
 };
 
 const validationSchema = object().shape({
@@ -50,7 +51,7 @@ const Login = () => {
           onSubmit={(values, { setSubmitting, resetForm }) => {
             setTimeout(() => {
               resetForm();
-              authCtx.onLogin(values.email, values.password, true);
+              authCtx.onLogin(values.email, values.password, values.checkbox);
               setSubmitting(false);
               const origin = router.query.origin?.toString();
               if (origin) {
@@ -82,17 +83,14 @@ const Login = () => {
                 type="password"
                 value={values.password || ""}
               />
-              <small>
-                Forgot password? Recover it{" "}
-                <a
-                  href="#"
-                  onClick={() => {
-                    router.push("/login/recover");
-                  }}
-                >
-                  here.
-                </a>
-              </small>
+              <div className={classes.checkField}>
+                <Field
+                  type="checkbox"
+                  name="checkbox"
+                  label="Keep me signed in"
+                />
+                <label htmlFor="checkbox">Keep me signed in</label>
+              </div>
               <div className={classes.formButtons}>
                 <input type="reset" value="Reset" />
                 <input
@@ -104,6 +102,17 @@ const Login = () => {
             </Form>
           )}
         </Formik>
+        <small>
+          Forgot password? Recover it{" "}
+          <a
+            href="#"
+            onClick={() => {
+              router.push("/login/recover");
+            }}
+          >
+            here.
+          </a>
+        </small>
       </section>
     </>
   );

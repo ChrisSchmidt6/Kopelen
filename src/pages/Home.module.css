@@ -1,16 +1,16 @@
-.leftButtons {
+.buttonWrap {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.leftButtons,
+.rightButtons {
   width: fit-content;
-  display: inline-block;
-  clear: right;
 }
 
 .leftButtons button {
   margin-right: 5px;
-}
-
-.rightButtons {
-  width: fit-content;
-  float: right;
 }
 
 .rightButtons svg {

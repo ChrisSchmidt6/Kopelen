@@ -10,9 +10,6 @@
   position: absolute;
   height: 100%;
   align-items: center;
-}
-
-.navIconContainer {
   display: flex;
   right: 25px;
 }

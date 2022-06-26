@@ -54,8 +54,16 @@
   margin: 0 2px;
 }
 
+@media screen and (max-width: 900px) {
+  .container form {
+    width: 450px;
+  }
+}
+
 @media screen and (max-width: 600px) {
-  .container {
+  .container,
+  .container form {
+    width: 100%;
     border-radius: 0px;
   }
 }

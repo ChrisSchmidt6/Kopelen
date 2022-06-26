@@ -39,7 +39,7 @@ const Create = () => {
 
   return (
     <>
-      <div className={classes.container}>
+      <section className={classes.container}>
         <h1>Create thread</h1>
         <div className={classes.buttonGroup}>
           <StyledButton
@@ -72,7 +72,7 @@ const Create = () => {
             setTagsArray={setTagsArray}
           />
         )}
-      </div>
+      </section>
     </>
   );
 };

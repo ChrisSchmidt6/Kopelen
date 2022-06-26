@@ -1,17 +1,9 @@
-.navIcons {
-  float: right;
-  height: 100%;
-  position: relative;
-  width: fit-content;
-}
-
 /* This class solely exists to vertically center the icons group */
 .navIconContainer {
-  position: absolute;
   height: 100%;
-  align-items: center;
   display: flex;
-  right: 25px;
+  align-items: center;
+  margin-right: 25px;
 }
 
 @media screen and (max-width: 600px) {

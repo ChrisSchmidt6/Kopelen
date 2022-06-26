@@ -44,18 +44,18 @@ const Register = () => {
 
   if (authCtx.isLoggedIn) {
     return (
-      <div className={classes.actionContainer}>
+      <section className={classes.actionContainer}>
         <h2>You must sign out first to create an account</h2>
         <StyledButton size="large" onClick={authCtx.onLogout}>
           Sign Out
         </StyledButton>
-      </div>
+      </section>
     );
   }
 
   return (
     <>
-      <div className={classes.container}>
+      <section className={classes.container}>
         <h1>Create a new account</h1>
         <Formik
           initialValues={initialValues}
@@ -123,7 +123,7 @@ const Register = () => {
             </Form>
           )}
         </Formik>
-      </div>
+      </section>
     </>
   );
 };

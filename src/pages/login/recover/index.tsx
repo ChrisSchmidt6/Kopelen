@@ -22,7 +22,7 @@ const Recover = () => {
 
   return (
     <>
-      <div className={classes.container}>
+      <section className={classes.container}>
         <h1>Reset Password</h1>
         <Formik
           initialValues={initialValues}
@@ -71,7 +71,7 @@ const Recover = () => {
             </Form>
           )}
         </Formik>
-      </div>
+      </section>
     </>
   );
 };

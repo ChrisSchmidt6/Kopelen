@@ -29,19 +29,19 @@ const Login = () => {
 
   if (authCtx.isLoggedIn) {
     return (
-      <div className={classes.actionContainer}>
+      <section className={classes.actionContainer}>
         <h2>You are already signed in</h2>
         <p>Did you mean to ...</p>
         <StyledButton size="large" onClick={authCtx.onLogout}>
           Sign Out
         </StyledButton>
-      </div>
+      </section>
     );
   }
 
   return (
     <>
-      <div className={classes.container}>
+      <section className={classes.container}>
         <h1>Sign in</h1>
         <Formik
           initialValues={initialValues}
@@ -104,7 +104,7 @@ const Login = () => {
             </Form>
           )}
         </Formik>
-      </div>
+      </section>
     </>
   );
 };

@@ -17,18 +17,18 @@ const Profile = () => {
 
   if (!authCtx.isLoggedIn) {
     return (
-      <div className={classes.actionContainer}>
+      <section className={classes.actionContainer}>
         <h2>You must be signed in to view your profile</h2>
         <StyledButton size="large" onClick={handleRedirectWithOrigin}>
           Sign In
         </StyledButton>
-      </div>
+      </section>
     );
   }
 
   return (
     <>
-      <div className={classes.container}>
+      <section className={classes.container}>
         <h3>{authCtx.username}</h3>
         <div className={classes.containerBody}>
           <ul className={classes.info}>
@@ -41,7 +41,7 @@ const Profile = () => {
             <a>My Comments</a>
           </div>
         </div>
-      </div>
+      </section>
     </>
   );
 };

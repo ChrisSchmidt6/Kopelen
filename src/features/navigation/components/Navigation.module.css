@@ -6,7 +6,7 @@
   width: 100%;
   height: 56px;
   background-color: #454545;
-  font-size: 12pt;
+  font-size: 16pt;
   box-shadow: 0px 0px 8px 2px rgba(89, 0, 117, 0.2);
   border-bottom: 1px solid #590075;
   z-index: 5;
@@ -26,6 +26,8 @@
 
 /* This class solely exists to vertically center the menu icon */
 .menuButton {
+  background-color: transparent;
+  border: 0px solid transparent;
   position: absolute;
   height: 100%;
   align-items: center;
@@ -54,7 +56,8 @@
     display: flex;
   }
 
-  .menuButton svg:active, .active svg {
+  .menuButton svg:active,
+  .active svg {
     box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.2);
   }
 }

@@ -32,21 +32,26 @@ const Navigation = () => {
   }`;
 
   return (
-    <div className={classes.navBar}>
-      <div
+    <nav className={classes.navBar}>
+      <button
         className={updatedMenuButtonClasses}
         onClick={handleMenu}
         tabIndex={-1}
       >
         <MdMenu />
-      </div>
+      </button>
 
-      <NavigationDrawer open={isMenuOpen} closeMenu={onCloseMenu} onLogout={onLogout} isLoggedIn={isLoggedIn} />
+      <NavigationDrawer
+        open={isMenuOpen}
+        closeMenu={onCloseMenu}
+        onLogout={onLogout}
+        isLoggedIn={isLoggedIn}
+      />
 
       <h1 onClick={() => handleRedirect("/")}>Kopelen</h1>
 
       <NavigationButtons onLogout={onLogout} isLoggedIn={isLoggedIn} />
-    </div>
+    </nav>
   );
 };
 

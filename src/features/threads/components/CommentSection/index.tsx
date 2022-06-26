@@ -38,7 +38,7 @@ const CommentSection: React.FC<{
   });
 
   return (
-    <div className={props.className}>
+    <section className={props.className}>
       <form className={classes.addComment} onClick={props.handleModalOpen}>
         <textarea name="comment" placeholder="Leave a comment..." />
         <div className={classes.interact}>
@@ -52,7 +52,7 @@ const CommentSection: React.FC<{
         </div>
       </form>
       {commentElements}
-    </div>
+    </section>
   );
 };
 

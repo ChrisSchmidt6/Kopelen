@@ -35,9 +35,9 @@ const Kopelen: React.FC<{
         <meta name="description" content="Kopelen does things" />
       </Head>
       <Navigation />
-      <div id="main">
+      <main id="main">
         <Component {...pageProps} />
-      </div>
+      </main>
       <div id="modal"></div>
     </>
   );

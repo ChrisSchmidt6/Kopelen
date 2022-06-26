@@ -45,7 +45,7 @@ const NavigationDrawer: React.FC<{
 
   return (
     <>
-      <div className={updatedClasses}>
+      <nav className={updatedClasses}>
         <ul className={classes.navigation}>
           <li onClick={() => handleRedirect("/")}>Threads</li>
           <li onClick={() => handleRedirect("/create")}>Create Thread</li>
@@ -55,7 +55,7 @@ const NavigationDrawer: React.FC<{
           <li>Settings</li>
         </ul>
         <div className={classes.background} onClick={props.closeMenu}></div>
-      </div>
+      </nav>
     </>
   );
 };

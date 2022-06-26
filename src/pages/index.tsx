@@ -29,7 +29,7 @@ const Home = () => {
 
   return (
     <>
-      <div className={classes.buttonWrap}>
+      <section className={classes.buttonWrap}>
         <div className={classes.leftButtons}>
           <ToggleButton>
             <StyledButton>Sort</StyledButton>
@@ -47,7 +47,7 @@ const Home = () => {
             <MdPostAdd /> Create
           </StyledButton>
         </div>
-      </div>
+      </section>
       {ThreadsBundle}
     </>
   );

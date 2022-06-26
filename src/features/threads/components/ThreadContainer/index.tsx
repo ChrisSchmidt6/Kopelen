@@ -26,7 +26,7 @@ const ThreadContainer: React.FC<{
     props.view === "full" ? classes.threadFull : classes.threadPreview;
 
   return (
-    <div className={threadStyle}>
+    <article className={threadStyle}>
       <ThreadAuthor author={props.author} />
 
       <ThreadAction
@@ -52,7 +52,7 @@ const ThreadContainer: React.FC<{
         view={props.view}
         id={props.id}
       />
-    </div>
+    </article>
   );
 };
 

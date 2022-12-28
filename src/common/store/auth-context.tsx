@@ -8,17 +8,23 @@ const AuthContext = React.createContext({
   authToken: "",
 });
 
-export const AuthContextProvider: React.FC = (props) => {
+export const AuthContextProvider: React.FC<{ children: React.ReactNode }> = (
+  props
+) => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [username, setUsername] = useState("");
   const [authToken, setAuthToken] = useState("");
 
-  const loginHandler = (username: string, password: string, persistLogin: boolean) => {
+  const loginHandler = async (
+    username: string,
+    password: string,
+    persistLogin: boolean
+  ) => {
     setIsLoggedIn(true);
     setUsername(username);
     const dummyAuth = "111222333";
     setAuthToken(dummyAuth);
-    if(persistLogin) localStorage.setItem("authToken", dummyAuth);
+    if (persistLogin) localStorage.setItem("authToken", dummyAuth);
   };
 
   const logoutHandler = () => {

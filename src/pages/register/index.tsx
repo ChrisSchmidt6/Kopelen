@@ -61,20 +61,33 @@ const Register = () => {
           initialValues={initialValues}
           validationSchema={validationSchema}
           validateOnMount
-          onSubmit={(values, { setSubmitting, resetForm }) => {
-            resetForm();
-            authCtx.onLogin(values.email, values.password, true);
-            setSubmitting(false);
-            const origin = router.query.origin?.toString();
-            if (origin) {
-              // Assuming the origin is stored with commas replacing the slashes and replace caret with pound
-              const originURL = `/${origin
-                .replaceAll(",", "/")
-                .replace("^", "#")}`;
-              router.push(originURL);
-            } else {
-              router.push("/");
+          onSubmit={async (values, { setSubmitting, resetForm }) => {
+            const res = await fetch("api/auth/register", {
+              method: "POST",
+              mode: "same-origin",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify(values),
+            });
+
+            let data = await res.json();
+
+            if (data.success) {
+              authCtx.onLogin(values.email, values.password, true);
+              setSubmitting(false);
+              const origin = router.query.origin?.toString();
+              if (origin) {
+                // Assuming the origin is stored with commas replacing the slashes and replace caret with pound
+                const originURL = `/${origin
+                  .replaceAll(",", "/")
+                  .replace("^", "#")}`;
+                router.push(originURL);
+              } else {
+                router.push("/");
+              }
             }
+            resetForm();
           }}
           onReset={(values, { validateForm }) => {
             validateForm(initialValues);

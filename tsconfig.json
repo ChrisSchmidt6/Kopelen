@@ -93,6 +93,6 @@
     "jsx": "preserve",
     "incremental": true
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/lib/db.ts"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/middleware/db.ts"],
   "exclude": ["node_modules"]
 }

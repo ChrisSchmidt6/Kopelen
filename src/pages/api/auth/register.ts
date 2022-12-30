@@ -2,9 +2,8 @@ import type { NextApiRequest, NextApiResponse } from "next";
 import { Schema } from "mongoose";
 import { object, ref, string } from "yup";
 
-import handler from "src/lib/handler";
-import validate from "src/lib/middleware/validation";
-import dbConnect from "src/lib/db";
+import handler from "src/middleware/handler";
+import validate from "src/middleware/validation";
 import hash from "src/lib/hashing";
 import AccessKey from "src/models/accesskeys";
 import User from "src/models/users";
@@ -29,61 +28,45 @@ const validationSchema = object().shape({
     .max(50, "Your access key can contain at most 50 characters"),
 });
 
-const register = handler.post(
-  async (req: NextApiRequest, res: NextApiResponse) => {
+const register = handler
+  .use(validate(validationSchema))
+  .post(async (req: NextApiRequest, res: NextApiResponse) => {
     const { username, email, password, confirmPassword, accessKey } = req.body;
-    await dbConnect();
 
-    AccessKey.findOne(
-      { key: accessKey },
-      (err: any, key: { expiration: Date }) => {
-        if (err) return res.status(500).json({ success: false });
+    let key = await AccessKey.findOne({ key: accessKey });
 
-        if (!key)
-          return res.status(500).json({
-            success: false,
-            message: "Access key is invalid or has expired",
-          });
+    if (!key || !key.valid)
+      return res.status(500).json({
+        success: false,
+        message: "Access key is invalid or has expired",
+      });
 
-        if (Date.now() > key.expiration.getTime()) {
-          AccessKey.deleteOne({ key: accessKey });
-          return res.status(500).json({
-            success: false,
-            message: "Access key is invalid or has expired",
-          });
-        }
+    let existingUser = await User.findOne({
+      $or: [{ username: username }, { email: email }],
+    });
 
-        User.findOne(
-          { $or: [{ username: username }, { email: email }] },
-          async (err: any, user: { email: string }) => {
-            if (err) return res.status(500).json({ success: false });
-            if (user) {
-              return res.status(500).json({
-                success: false,
-                message:
-                  "Either the username or email specified is already in use",
-              });
-            } else {
-              try {
-                const user = new User({
-                  email: email,
-                  username: username,
-                  password: await hash(password),
-                });
+    if (existingUser)
+      return res.status(500).json({
+        success: false,
+        message: "Either the username or email specified is already in use",
+      });
 
-                await user.save();
+    try {
+      const user = new User({
+        email: email,
+        username: username,
+        password: await hash(password),
+      });
+      await user.save();
 
-                res.status(200).json({ success: true });
-              } catch (err) {
-                res.status(400).json(err);
-              }
-            }
-            return;
-          }
-        ).collation({ locale: "en", strength: 2 });
-      }
-    );
-  }
-);
+      key.valid = false;
+      key.usedBy = username;
+      await key.save();
 
-export default validate(validationSchema, register);
+      res.status(200).json({ success: true });
+    } catch (err) {
+      res.status(400).json(err);
+    }
+  });
+
+export default register;

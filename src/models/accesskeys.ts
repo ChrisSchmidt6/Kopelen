@@ -6,12 +6,16 @@ let AccessKeySchema = new mongoose.Schema({
     required: true,
     unique: true,
   },
-  expiration: {
-    type: Date,
+  valid: {
+    type: Boolean,
+    default: true,
     required: true,
-    default: new Date(
-      Date.now() + 1000 * 60 * 24 * 14 /* 14 day expiration from creation */
-    ),
+  },
+  usedBy: {
+    type: String,
+    default: "",
+    required: true,
+    unique: true,
   },
 });
 

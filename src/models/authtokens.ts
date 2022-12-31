@@ -6,6 +6,15 @@ let AuthTokenSchema = new mongoose.Schema({
     required: true,
     unique: true,
   },
+  valid: {
+    type: Boolean,
+    required: true,
+    default: true,
+  },
+  userId: {
+    type: String,
+    required: true,
+  },
   expiration: {
     type: Date,
     default: new Date(

@@ -1,12 +1,13 @@
 import type { NextApiRequest, NextApiResponse } from "next";
-import { Schema } from "mongoose";
 import { object, ref, string } from "yup";
 
 import handler from "src/middleware/handler";
 import validate from "src/middleware/validation";
-import hash from "src/lib/hashing";
-import AccessKey from "src/models/accesskeys";
-import User from "src/models/users";
+import createUser, {
+  checkAccessKeyValidity,
+  findUser,
+  useAccessKey,
+} from "src/lib/user";
 
 const validationSchema = object().shape({
   username: string()
@@ -33,17 +34,15 @@ const register = handler
   .post(async (req: NextApiRequest, res: NextApiResponse) => {
     const { username, email, password, confirmPassword, accessKey } = req.body;
 
-    let key = await AccessKey.findOne({ key: accessKey });
+    const keyIsValid = await checkAccessKeyValidity(accessKey);
 
-    if (!key || !key.valid)
+    if (!keyIsValid)
       return res.status(500).json({
         success: false,
-        message: "Access key is invalid or has expired",
+        message: "Access key is invalid",
       });
 
-    let existingUser = await User.findOne({
-      $or: [{ username: username }, { email: email }],
-    });
+    const existingUser = await findUser(username, email);
 
     if (existingUser)
       return res.status(500).json({
@@ -52,20 +51,12 @@ const register = handler
       });
 
     try {
-      const user = new User({
-        email: email,
-        username: username,
-        password: await hash(password),
-      });
-      await user.save();
-
-      key.valid = false;
-      key.usedBy = username;
-      await key.save();
+      await createUser(email, username, password);
+      await useAccessKey(accessKey, username);
 
       res.status(200).json({ success: true });
-    } catch (err) {
-      res.status(400).json(err);
+    } catch (error) {
+      res.status(400).json(error);
     }
   });
 

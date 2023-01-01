@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@hapi/iron": "^7.0.0",
     "@reduxjs/toolkit": "^1.6.2",
     "bcryptjs": "^2.4.3",
     "formik": "^2.2.9",

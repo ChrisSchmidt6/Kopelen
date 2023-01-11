@@ -1,5 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import { object, ref, string } from "yup";
+import { serialize } from "cookie";
 
 import handler from "src/middleware/handler";
 import validate from "src/middleware/validation";
@@ -8,6 +9,7 @@ import createUser, {
   findUser,
   useAccessKey,
 } from "src/lib/user";
+import generateNewTokens from "src/lib/auth";
 
 const validationSchema = object().shape({
   username: string()
@@ -51,10 +53,28 @@ const register = handler
       });
 
     try {
-      await createUser(email, username, password);
+      const user = await createUser(email, username, password);
       await useAccessKey(accessKey, username);
 
-      res.status(200).json({ success: true });
+      const { authToken, tempToken } = await generateNewTokens(
+        user._id.toString(),
+        user.username,
+        user.authorization,
+        user.email
+      );
+
+      res.setHeader(
+        "Set-Cookie",
+        serialize("auth-token", authToken, {
+          maxAge: 14 * 24 * 60 * 60 * 1000, // 14 days
+          httpOnly: true,
+          secure: process.env.NODE_ENV! === "production",
+          path: "/",
+          sameSite: "strict",
+        })
+      );
+
+      res.status(200).json({ success: true, tempToken });
     } catch (error) {
       res.status(400).json(error);
     }

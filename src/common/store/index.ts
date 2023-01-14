@@ -1,13 +1,15 @@
-import { configureStore } from '@reduxjs/toolkit'
+import { configureStore } from "@reduxjs/toolkit";
 
-import threadsSlice from './threadsSlice'
+import authSlice from "./authSlice";
+import threadsSlice from "./threadsSlice";
 
 export const store = configureStore({
   reducer: {
-    threadsSlice
+    authSlice,
+    threadsSlice,
   },
-})
+});
 
-export type RootState = ReturnType<typeof store.getState>
+export type RootState = ReturnType<typeof store.getState>;
 
-export type AppDispatch = typeof store.dispatch
+export type AppDispatch = typeof store.dispatch;

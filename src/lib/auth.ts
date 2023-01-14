@@ -38,7 +38,7 @@ export async function generateTempToken(user: {
     return;
   }
 
-  return sealed;
+  return { token: sealed, expiration: tempToken.eat };
 }
 
 export async function readTempToken(token: any, secret: string) {
@@ -51,7 +51,7 @@ export async function generateAuthToken(userId: string) {
     userId: userId,
   }).save();
 
-  return authToken._id.toString();
+  return authToken.key;
 }
 
 export async function deleteAuthToken(key: string) {

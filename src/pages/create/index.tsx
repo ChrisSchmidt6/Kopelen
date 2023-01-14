@@ -1,27 +1,27 @@
-import { useContext, useState } from "react";
+import { useState } from "react";
 import { useRouter } from "next/router";
 
 import StyledButton from "src/common/components/UI/StyledButton";
 import TextThread from "src/features/createThread/components/TextThread";
 import LinkThread from "src/features/createThread/components/LinkThread";
 
-import AuthContext from "src/common/store/auth-context";
-
 import classes from "./Create.module.css";
+import { useAppSelector } from "src/common/hooks/reduxHooks";
 
 type threadSelection = "text" | "link" | "upload";
 
 const Create = () => {
   const [threadType, setThreadType] = useState<threadSelection>("text");
   const [tagsArray, setTagsArray] = useState<string[]>([]);
-  const authCtx = useContext(AuthContext);
+
+  const authInfo = useAppSelector((state) => state.authSlice);
   const router = useRouter();
 
   const handleRedirectWithOrigin = () => {
     router.push("/login?origin=create");
   };
 
-  if (!authCtx.isLoggedIn) {
+  if (!authInfo.isLoggedIn) {
     return (
       <div className={classes.actionContainer}>
         <h2>You must sign in first to create a thread</h2>

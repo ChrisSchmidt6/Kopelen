@@ -1,4 +1,3 @@
-import { useContext } from "react";
 import router from "next/router";
 import { Formik, Form, Field } from "formik";
 import { object, string } from "yup";
@@ -6,9 +5,10 @@ import { object, string } from "yup";
 import StyledInput from "src/common/components/UI/StyledInput";
 import StyledButton from "src/common/components/UI/StyledButton";
 
-import AuthContext from "src/common/store/auth-context";
+import { useAppDispatch, useAppSelector } from "src/common/hooks/reduxHooks";
 
 import classes from "./Login.module.css";
+import { loginHandler, logoutHandler } from "src/common/store/authSlice";
 
 const initialValues = {
   email: "",
@@ -26,14 +26,15 @@ const validationSchema = object().shape({
 });
 
 const Login = () => {
-  const authCtx = useContext(AuthContext);
+  const authInfo = useAppSelector((state) => state.authSlice);
+  const dispatch = useAppDispatch();
 
-  if (authCtx.isLoggedIn) {
+  if (authInfo.isLoggedIn) {
     return (
       <section className={classes.actionContainer}>
         <h2>You are already signed in</h2>
         <p>Did you mean to ...</p>
-        <StyledButton size="large" onClick={authCtx.onLogout}>
+        <StyledButton size="large" onClick={() => dispatch(logoutHandler())}>
           Sign Out
         </StyledButton>
       </section>
@@ -51,7 +52,7 @@ const Login = () => {
           onSubmit={(values, { setSubmitting, resetForm }) => {
             setTimeout(() => {
               resetForm();
-              authCtx.onLogin(values.email, values.password, values.checkbox);
+              dispatch(loginHandler("randomname"));
               setSubmitting(false);
               const origin = router.query.origin?.toString();
               if (origin) {

@@ -1,12 +1,16 @@
-import { useContext } from "react";
 import router from "next/router";
 import { Formik, Form } from "formik";
 import { object, ref, string } from "yup";
 
+import { useAppDispatch, useAppSelector } from "src/common/hooks/reduxHooks";
+import {
+  loginHandler,
+  logoutHandler,
+  setAuthToken,
+} from "src/common/store/authSlice";
+
 import StyledInput from "src/common/components/UI/StyledInput";
 import StyledButton from "src/common/components/UI/StyledButton";
-
-import AuthContext from "src/common/store/auth-context";
 
 import classes from "./Register.module.css";
 
@@ -40,13 +44,14 @@ const validationSchema = object().shape({
 });
 
 const Register = () => {
-  const authCtx = useContext(AuthContext);
+  const authInfo = useAppSelector((state) => state.authSlice);
+  const dispatch = useAppDispatch();
 
-  if (authCtx.isLoggedIn) {
+  if (authInfo.isLoggedIn) {
     return (
       <section className={classes.actionContainer}>
         <h2>You must sign out first to create an account</h2>
-        <StyledButton size="large" onClick={authCtx.onLogout}>
+        <StyledButton size="large" onClick={() => dispatch(logoutHandler())}>
           Sign Out
         </StyledButton>
       </section>
@@ -74,7 +79,10 @@ const Register = () => {
             let data = await res.json();
 
             if (data.success) {
-              authCtx.onLogin(values.email, values.password, true);
+              dispatch(loginHandler(values.username));
+              console.debug(data.tempToken);
+              dispatch(setAuthToken(data.tempToken));
+
               setSubmitting(false);
               const origin = router.query.origin?.toString();
               if (origin) {

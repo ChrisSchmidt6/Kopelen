@@ -33,6 +33,7 @@ export const checkToken = createAsyncThunk(
 
         if (data.success) {
           dispatch(setAuthToken({ ...data.tokenData }));
+          dispatch(loginHandler(data.username));
           return next();
         } else {
           dispatch(logoutHandler());
@@ -48,6 +49,25 @@ export const checkToken = createAsyncThunk(
   }
 );
 
+export const logoutHandler = createAsyncThunk("auth/logoutAPI", async () => {
+  try {
+    const res = await fetch("api/auth/logout", {
+      method: "GET",
+      mode: "same-origin",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+
+    const data = await res.json();
+
+    return data.success;
+  } catch (error) {
+    console.debug(error);
+    return false;
+  }
+});
+
 export const authSlice = createSlice({
   name: "auth",
   initialState,
@@ -55,13 +75,6 @@ export const authSlice = createSlice({
     loginHandler: (state, action: PayloadAction<string>) => {
       state.isLoggedIn = true;
       state.username = action.payload;
-    },
-    logoutHandler: (state) => {
-      console.log("please");
-      state.username = "";
-      state.isLoggedIn = false;
-      state.authToken = "";
-      state.tokenExpiration = 0;
     },
     setAuthToken: (
       state,
@@ -71,8 +84,17 @@ export const authSlice = createSlice({
       state.tokenExpiration = action.payload.expiration;
     },
   },
+  extraReducers: (builder) => {
+    builder.addCase(logoutHandler.fulfilled, (state, payload) => {
+      state.username = "";
+      state.isLoggedIn = false;
+      state.authToken = "";
+      state.tokenExpiration = 0;
+      if (!payload) console.warn("Could not delete Auth Token");
+    });
+  },
 });
 
-export const { loginHandler, logoutHandler, setAuthToken } = authSlice.actions;
+export const { loginHandler, setAuthToken } = authSlice.actions;
 
 export default authSlice.reducer;

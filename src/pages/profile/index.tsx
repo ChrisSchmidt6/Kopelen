@@ -1,21 +1,19 @@
-import { useContext } from "react";
 import { useRouter } from "next/router";
 
 import StyledButton from "src/common/components/UI/StyledButton";
 
-import AuthContext from "src/common/store/auth-context";
-
 import classes from "./Profile.module.css";
+import { useAppSelector } from "src/common/hooks/reduxHooks";
 
 const Profile = () => {
-  const authCtx = useContext(AuthContext);
+  const authInfo = useAppSelector((state) => state.authSlice);
   const router = useRouter();
 
   const handleRedirectWithOrigin = () => {
     router.push("/login?origin=profile");
   };
 
-  if (!authCtx.isLoggedIn) {
+  if (!authInfo.isLoggedIn) {
     return (
       <section className={classes.actionContainer}>
         <h2>You must be signed in to view your profile</h2>
@@ -29,7 +27,7 @@ const Profile = () => {
   return (
     <>
       <section className={classes.container}>
-        <h3>{authCtx.username}</h3>
+        <h3>{authInfo.username}</h3>
         <div className={classes.containerBody}>
           <ul className={classes.info}>
             <li>Email: placeholder</li>

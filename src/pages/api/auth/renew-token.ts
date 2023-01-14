@@ -50,6 +50,7 @@ export default handler.get(
     res.status(200).json({
       success: true,
       tokenData: newTokens.tempToken,
+      username: user.username,
     });
   }
 );

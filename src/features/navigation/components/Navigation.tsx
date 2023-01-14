@@ -1,18 +1,20 @@
-import { useContext, useState } from "react";
+import { useState } from "react";
 import { useRouter } from "next/router";
 import { MdMenu } from "react-icons/md";
 
 import NavigationButtons from "./NavigationButtons";
 import NavigationDrawer from "./NavigationDrawer";
 
-import AuthContext from "src/common/store/auth-context";
-
 import classes from "./Navigation.module.css";
+import { useAppDispatch, useAppSelector } from "src/common/hooks/reduxHooks";
+import { logoutHandler } from "src/common/store/authSlice";
 
 const Navigation = () => {
   const [isMenuOpen, setisMenuOpen] = useState(false);
   const router = useRouter();
-  const { isLoggedIn, onLogout } = useContext(AuthContext);
+
+  const authInfo = useAppSelector((state) => state.authSlice);
+  const dispatch = useAppDispatch();
 
   const handleRedirect = (url: string) => {
     router.push(url);
@@ -44,13 +46,16 @@ const Navigation = () => {
       <NavigationDrawer
         open={isMenuOpen}
         closeMenu={onCloseMenu}
-        onLogout={onLogout}
-        isLoggedIn={isLoggedIn}
+        onLogout={() => dispatch(logoutHandler())}
+        isLoggedIn={authInfo.isLoggedIn}
       />
 
       <h1 onClick={() => handleRedirect("/")}>Kopelen</h1>
 
-      <NavigationButtons onLogout={onLogout} isLoggedIn={isLoggedIn} />
+      <NavigationButtons
+        onLogout={() => dispatch(logoutHandler())}
+        isLoggedIn={authInfo.isLoggedIn}
+      />
     </nav>
   );
 };

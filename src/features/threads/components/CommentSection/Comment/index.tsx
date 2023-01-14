@@ -1,12 +1,11 @@
-import { useContext, useState } from "react";
+import { useState } from "react";
 import {
   MdDeleteForever,
   MdEmojiEmotions,
   MdFlag,
   MdOutlinedFlag,
 } from "react-icons/md";
-
-import AuthContext from "src/common/store/auth-context";
+import { useAppSelector } from "src/common/hooks/reduxHooks";
 
 import classes from "./Comment.module.css";
 
@@ -23,12 +22,13 @@ const Comment: React.FC<{
 }> = (props) => {
   const [isLiked, setIsLiked] = useState(false);
   const [isFlagged, setIsFlagged] = useState(false);
-  const authCtx = useContext(AuthContext);
+
+  const authInfo = useAppSelector((state) => state.authSlice);
 
   const isModerator = false;
 
   const handleLike = () => {
-    if (!authCtx.isLoggedIn) {
+    if (!authInfo.isLoggedIn) {
       props.handleModalOpen();
     } else {
       setIsLiked((prevState) => {
@@ -38,7 +38,7 @@ const Comment: React.FC<{
   };
 
   const handleFlag = () => {
-    if (!authCtx.isLoggedIn) {
+    if (!authInfo.isLoggedIn) {
       props.handleModalOpen();
     } else {
       setIsFlagged((prevState) => {
@@ -48,8 +48,8 @@ const Comment: React.FC<{
   };
 
   let likeClasses = classes.likeIcon;
-  isLiked ? likeClasses += ` ${classes.active}` : null;
-  
+  isLiked ? (likeClasses += ` ${classes.active}`) : null;
+
   const flagIcon = isFlagged ? (
     <MdFlag className={classes.flagged} />
   ) : (

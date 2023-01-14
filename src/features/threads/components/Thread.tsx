@@ -1,11 +1,12 @@
-import { useContext, useState } from "react";
+import { useState } from "react";
 import router from "next/router";
 
 import CommentSection from "./CommentSection";
 import LoginModal from "./LoginModal";
 import ThreadContainer from "./ThreadContainer";
 
-import AuthContext from "src/common/store/auth-context";
+import { useAppDispatch, useAppSelector } from "src/common/hooks/reduxHooks";
+import { checkToken } from "src/common/store/authSlice";
 
 import classes from "./Threads.module.css";
 
@@ -21,12 +22,13 @@ const Threads: React.FC<{
   const [isLiked, setIsLiked] = useState(false);
   const [isFlagged, setIsFlagged] = useState(false);
   const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
-  const authCtx = useContext(AuthContext);
+  const authInfo = useAppSelector((state) => state.authSlice);
+  const dispatch = useAppDispatch();
 
   const isModerator = false;
 
   const openLoginModal = () => {
-    if (!authCtx.isLoggedIn) {
+    if (!authInfo.isLoggedIn) {
       setIsLoginModalOpen(true);
     }
   };
@@ -43,8 +45,23 @@ const Threads: React.FC<{
     }
   };
 
-  const handleLike = () => {
-    if (!authCtx.isLoggedIn) {
+  const handleLike = async () => {
+    dispatch(
+      checkToken(async () => {
+        const newRes = await fetch("api/auth/protected", {
+          method: "GET",
+          mode: "same-origin",
+          headers: {
+            Authorization: `Bearer ${authInfo.authToken}`,
+            "Content-Type": "application/json",
+          },
+        });
+
+        console.log(await newRes.json());
+      })
+    );
+
+    if (!authInfo.isLoggedIn) {
       setIsLoginModalOpen(true);
     } else {
       setIsLiked((prevState) => {
@@ -54,7 +71,7 @@ const Threads: React.FC<{
   };
 
   const handleFlag = () => {
-    if (!authCtx.isLoggedIn) {
+    if (!authInfo.isLoggedIn) {
       setIsLoginModalOpen(true);
     } else {
       setIsFlagged((prevState) => {

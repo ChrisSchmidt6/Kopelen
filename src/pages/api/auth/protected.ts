@@ -4,7 +4,7 @@ import handler from "src/middleware/handler";
 
 export default handler
   .use(AuthorizeUser)
-  .get((req: NextApiRequest, res: NextApiResponse, next: any) => {
-    console.log("yo");
+  .get((req: NextApiRequest, res: NextApiResponse) => {
+    console.log("protected call");
     res.status(200).json({ success: true });
   });
